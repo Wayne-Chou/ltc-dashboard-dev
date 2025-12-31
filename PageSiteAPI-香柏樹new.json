@@ -1,0 +1,38 @@
+[
+  {
+    "No": 0,
+    "Name": "台電據點",
+    "LatLngCoordinate": {
+      "Latitude": 25.018560776712626,
+      "Longitude": 121.53084540744887
+    },
+    "Count": 56
+  },
+  {
+    "No": 1,
+    "Name": "台大據點",
+    "LatLngCoordinate": {
+      "Latitude": 25.0187464099794,
+      "Longitude": 121.53311959580091
+    },
+    "Count": 75
+  },
+  {
+    "No": 2,
+    "Name": "大坪林據點",
+    "LatLngCoordinate": {
+      "Latitude": 24.98597217365813,
+      "Longitude": 121.53994353812955
+    },
+    "Count": 69
+  },
+  {
+    "No": 3,
+    "Name": "樟新據點",
+    "LatLngCoordinate": {
+      "Latitude": 24.97775722005223,
+      "Longitude": 121.55662169352254
+    },
+    "Count": 41
+  }
+]
