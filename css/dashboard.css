@@ -1,0 +1,457 @@
+:root {
+  --bg-main: #f5f7fb;
+  --panel: #ffffff;
+  --panel-soft: #fbfcff;
+  --border: #e6eaf2;
+
+  --text-main: #111827;
+  --text-sub: #6b7280;
+
+  --good: #16a34a;
+  --watch: #f59e0b;
+  --critical: #dc2626;
+  --info: #2563eb;
+
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --shadow-soft: 0 10px 30px rgba(17, 24, 39, 0.06);
+}
+
+body.app {
+  background: radial-gradient(
+      900px 420px at 12% -10%,
+      rgba(37, 99, 235, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 420px at 95% 0%,
+      rgba(245, 158, 11, 0.08),
+      transparent 55%
+    ),
+    var(--bg-main);
+  color: var(--text-main);
+  font-family: "Inter", "Noto Sans TC", system-ui, sans-serif;
+}
+
+.app-shell {
+  max-width: 1200px;
+  padding-bottom: 48px;
+}
+
+.patient-header {
+  background: linear-gradient(
+    180deg,
+    rgba(37, 99, 235, 0.14) 0%,
+    rgba(37, 99, 235, 0.08) 55%,
+    rgba(255, 255, 255, 0.75) 100%
+  );
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 22px;
+  margin: 18px 0 20px;
+}
+
+.patient-header-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.app-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border);
+  color: #1f2937;
+}
+
+.patient-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.patient-name i {
+  color: var(--info);
+}
+
+#personName {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 900;
+}
+
+.patient-subtitle {
+  color: var(--text-sub);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.patient-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.patient-meta .meta-item {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  box-shadow: 0 4px 14px rgba(17, 24, 39, 0.04);
+}
+
+.patient-meta .meta-label {
+  font-size: 0.75rem;
+  color: var(--text-sub);
+}
+
+.patient-meta .meta-value {
+  font-weight: 900;
+  font-size: 1.05rem;
+}
+
+.clinical-headline {
+  background: linear-gradient(180deg, var(--panel-soft), var(--panel));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow-soft);
+}
+
+#reportHeadline[data-status="good"] {
+  border-left: 6px solid var(--good);
+}
+#reportHeadline[data-status="watch"] {
+  border-left: 6px solid var(--watch);
+}
+#reportHeadline[data-status="critical"] {
+  border-left: 6px solid var(--critical);
+}
+
+.headline {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.headline-left {
+  display: flex;
+  gap: 14px;
+}
+
+.headline-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  border: 1px solid var(--border);
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--info);
+}
+
+.headline-title {
+  font-weight: 900;
+}
+
+.headline-desc {
+  font-size: 0.9rem;
+  color: var(--text-sub);
+}
+
+.headline-right {
+  display: flex;
+  gap: 18px;
+  text-align: right;
+}
+
+.headline-meta .meta-label {
+  font-size: 0.75rem;
+  color: var(--text-sub);
+}
+
+.headline-meta .meta-value {
+  font-weight: 900;
+}
+
+.layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.layout > div:first-child {
+  flex: 1.1;
+}
+
+.layout > div:last-child {
+  flex: 0.9;
+}
+#personTable {
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+@media (max-width: 992px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .layout > div {
+    width: 100%;
+  }
+}
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 22px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px 0;
+}
+
+.panel-body {
+  padding: 16px 20px 20px;
+}
+
+.panel-title {
+  font-weight: 900;
+  font-size: 1.1rem;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.panel-title i {
+  color: var(--info);
+}
+
+.panel-hint {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+}
+
+.panel-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-soft {
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+  color: #1e3a8a;
+}
+
+.btn-soft.secondary {
+  background: rgba(107, 114, 128, 0.08);
+  border-color: rgba(107, 114, 128, 0.18);
+  color: #374151;
+}
+
+.trend-card {
+  background: linear-gradient(180deg, #fff, var(--panel-soft));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 12px;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(17, 24, 39, 0.05);
+}
+
+.trend-card-title {
+  font-size: 0.78rem;
+  color: var(--text-sub);
+  margin-bottom: 6px;
+}
+
+.trend-card-value {
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.tone-good {
+  border-top: 4px solid var(--good);
+  color: var(--good);
+}
+.tone-watch {
+  border-top: 4px solid var(--watch);
+  color: var(--watch);
+}
+.tone-critical {
+  border-top: 4px solid var(--critical);
+  color: var(--critical);
+}
+.tone-neutral {
+  border-top: 4px solid #9ca3af;
+}
+
+.table-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.table thead th {
+  background: #f7f9ff !important;
+  font-weight: 900;
+  color: #1f2a55;
+}
+
+.table tbody td {
+  border-top: 1px solid var(--border);
+}
+
+.chart-card {
+  background: linear-gradient(180deg, #fff, var(--panel-soft));
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.chart-head {
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.chart-title {
+  font-weight: 900;
+}
+
+.chart-sub {
+  font-size: 0.8rem;
+  color: var(--text-sub);
+}
+
+.chart-body {
+  height: 260px;
+  padding: 12px 14px 16px;
+}
+
+.chart-body canvas {
+  height: 100% !important;
+}
+
+.download-chart {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.82rem;
+  background: rgba(107, 114, 128, 0.08);
+  border: 1px solid rgba(107, 114, 128, 0.18);
+  color: #374151;
+}
+
+.download-chart:hover {
+  background: rgba(107, 114, 128, 0.14);
+  color: #111827;
+}
+
+.record-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.record-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: linear-gradient(180deg, #fff, var(--panel-soft));
+  box-shadow: 0 4px 14px rgba(17, 24, 39, 0.04);
+  cursor: pointer;
+}
+
+.record-item:hover {
+  background: #f9fafb;
+}
+
+.record-item input[type="checkbox"] {
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.record-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.record-date {
+  font-weight: 900;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.record-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  font-size: 0.85rem;
+  color: var(--text-sub);
+}
+
+.record-metrics span {
+  white-space: nowrap;
+}
+
+.record-metrics b {
+  color: var(--text-main);
+}
+
+.record-metrics .risk {
+  font-weight: 800;
+}
+
+.record-balance {
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border);
+  font-size: 0.85rem;
+  color: var(--text-sub);
+}
+
+.balance-title {
+  font-weight: 800;
+  margin-bottom: 4px;
+  color: var(--text-main);
+}
+
+.balance-list {
+  padding-left: 16px;
+  margin: 0;
+}
+
+.balance-list li {
+  line-height: 1.4;
+}

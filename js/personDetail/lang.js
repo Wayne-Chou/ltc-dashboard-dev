@@ -15,6 +15,7 @@ const LANG = {
     Select: "選取",
     Date: "檢測日期",
     sitStand: "坐站秒數",
+    balance: "平衡",
     balance1: "平衡得分-雙腳並排站立",
     balance2: "平衡得分-雙腳半並排站立",
     balance3: "平衡得分-雙腳直線站立",
@@ -48,12 +49,27 @@ const LANG = {
       unknown: "未知",
     },
     dates: "日期",
+    trendSummary: {
+      noData: "至少需要兩筆資料才能顯示指標變化",
+      title: "指標變化趨勢",
+      compareText: "與",
+      compareSuffix: "的比較，顯示每項指標變化情況",
+      items: {
+        sitStand: "坐站秒數",
+        balance: "平衡得分",
+        gait: "步行速度",
+        risk: "AI跌倒風險",
+      },
+    },
+    dateRangePlaceholder: "請選擇日期範圍",
+    clear: "清除",
   },
   en: {
     alertNoData: "No data",
     Select: "Select",
     Date: "Date",
     sitStand: "Sit-Stand (s)",
+    balance: "balance",
     balance1: "Balance Score - Feet Together",
     balance2: "Balance Score - Semi-Tandem",
     balance3: "Balance Score - Tandem",
@@ -87,12 +103,27 @@ const LANG = {
       unknown: "Unknown",
       dates: "Date",
     },
+    trendSummary: {
+      noData: "At least two records are required to show trend changes.",
+      title: "Trend Changes Summary",
+      compareText: "compared with",
+      compareSuffix: ", showing changes for each indicator.",
+      items: {
+        sitStand: "Sit-to-Stand Time",
+        balance: "Balance Score",
+        gait: "Gait Speed",
+        risk: "AI Fall Risk",
+      },
+    },
+    dateRangePlaceholder: "Select date range",
+    clear: "Clear",
   },
   ja: {
     alertNoData: "データなし",
     Select: "選択",
     Date: "検査日",
     sitStand: "座立秒数",
+    balance: "バランス",
     balance1: "バランススコア - 並立",
     balance2: "バランススコア - 半並立",
     balance3: "バランススコア - 直線立位",
@@ -126,12 +157,27 @@ const LANG = {
       unknown: "不明",
     },
     dates: "日付",
+    trendSummary: {
+      noData: "指標の変化を表示するには、少なくとも2件のデータが必要です。",
+      title: "指標変化の推移",
+      compareText: "と",
+      compareSuffix: "を比較し、各指標の変化を表示します。",
+      items: {
+        sitStand: "座立秒数",
+        balance: "バランス得点",
+        gait: "歩行速度",
+        risk: "AI転倒リスク",
+      },
+    },
+    dateRangePlaceholder: "日付範囲を選択",
+    clear: "クリア",
   },
   ko: {
     alertNoData: "데이터 없음",
     Select: "선택",
     Date: "검사 날짜",
     sitStand: "좌/서 시간",
+    balance: "균형",
     balance1: "균형 점수 - 양발 나란히",
     balance2: "균형 점수 - 반 텐덤",
     balance3: "균형 점수 - 직선 스탠드",
@@ -165,6 +211,20 @@ const LANG = {
       unknown: "알 수 없음",
     },
     dates: "날짜",
+    trendSummary: {
+      noData: "지표 변화를 표시하려면 최소 두 개의 데이터가 필요합니다.",
+      title: "지표 변화 추세",
+      compareText: "와",
+      compareSuffix: "의 비교를 통해 각 지표의 변화를 보여줍니다.",
+      items: {
+        sitStand: "좌/서 시간",
+        balance: "균형 점수",
+        gait: "보행 속도",
+        risk: "AI 낙상 위험",
+      },
+    },
+    dateRangePlaceholder: "날짜 범위를 선택하세요",
+    clear: "초기화",
   },
 };
 function t(key) {
@@ -174,7 +234,12 @@ function t(key) {
 window.applyLanguage = function () {
   document.querySelectorAll("[data-lang]").forEach((el) => {
     const key = el.getAttribute("data-lang");
-    el.textContent = t(key);
+
+    if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+      el.placeholder = t(key);
+    } else {
+      el.textContent = t(key);
+    }
   });
 };
 
