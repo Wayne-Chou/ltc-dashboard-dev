@@ -63,7 +63,7 @@ const LANG = {
     overviewAllText:
       "顯示每位受測者的最新測驗結果，共 {people} 位受測者（{records} 筆測驗資料）。",
     overviewLevelText: "{level}：共 {people} 位受測者（{records} 筆資料）。",
-    userCount: "用戶數",
+    assessedCount: "鑑測人數",
     locations: {
       taipower: "台電據點",
       ntu: "台大據點",
@@ -135,7 +135,7 @@ const LANG = {
     overviewAllText:
       "Showing the latest result of each participant. Total {people} participants ({records} test records).",
     overviewLevelText: "{level}: {people} participants ({records} records).",
-    userCount: "User Count",
+    assessedCount: "Number of people assessed",
     locations: {
       taipower: "Taipower Site",
       ntu: "NTU Site",
@@ -206,7 +206,7 @@ const LANG = {
     overviewAllText:
       "各受検者の最新結果を表示しています。合計 {people} 人（{records} 件の検査データ）。",
     overviewLevelText: "{level}：合計 {people} 人（{records} 件）。",
-    userCount: "ユーザー数",
+    assessedCount: "鑑測人数",
     locations: {
       taipower: "台電拠点",
       ntu: "台大拠点",
@@ -277,7 +277,7 @@ const LANG = {
     overviewAllText:
       "각 참가자의 최신 검사 결과를 표시합니다. 총 {people}명 ({records}건의 검사 기록).",
     overviewLevelText: "{level}: 총 {people}명 ({records}건).",
-    userCount: "사용자 수",
+    assessedCount: "검사 인원수",
     locations: {
       taipower: "타이파워 거점",
       ntu: "타이완대 거점",

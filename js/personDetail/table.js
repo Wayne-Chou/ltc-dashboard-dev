@@ -16,8 +16,10 @@ window.renderTable = function (datas) {
   const container = document.getElementById("personTable");
 
   if (!datas || datas.length === 0) {
-    container.innerHTML =
-      '<div class="text-muted py-3 text-center">查無資料</div>';
+    container.innerHTML = `
+      <div class="text-muted py-3 text-center">
+        ${t("alertNoData")}
+      </div>`;
     return;
   }
 
@@ -78,41 +80,94 @@ window.renderTable = function (datas) {
   container.innerHTML = html;
 };
 
-// ===== checkbox / 全選 / 取消全選（原樣）=====
+// ===== checkbox / 全選 / 取消全選 =====
 window.setupCheckboxes = function (datas) {
   const rowChecks = document.querySelectorAll(".row-check");
   const checkAllBtn = document.getElementById("checkAllBtn");
   const uncheckAllBtn = document.getElementById("uncheckAllBtn");
+  const hint = document.querySelector(".panel-hint");
+
+  const hintLang =
+    LANG[window.currentLang]?.tableHint ||
+    LANG[window.currentLang]?.headline?.tableHint;
+
+  function format(str, vars) {
+    return str.replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? "");
+  }
+
+  function updateCompareHint(selectedDatas, compareDatas) {
+    if (!hint || !hintLang) return;
+
+    if (selectedDatas.length === 0) {
+      hint.dataset.state = "";
+      hint.textContent = hintLang.empty;
+      return;
+    }
+
+    if (selectedDatas.length === 1) {
+      hint.dataset.state = "warn";
+      hint.textContent = hintLang.single;
+      return;
+    }
+
+    const dates = compareDatas.map((d) =>
+      new Date(d.Date).toLocaleDateString()
+    );
+
+    hint.dataset.state = "ok";
+
+    if (selectedDatas.length > 2) {
+      hint.textContent = format(hintLang.multi, {
+        count: selectedDatas.length,
+        d1: dates[0],
+        d2: dates[1],
+      });
+    } else {
+      hint.textContent = format(hintLang.comparing, {
+        d1: dates[0],
+        d2: dates[1],
+      });
+    }
+  }
 
   function updateCharts() {
     const selectedIndexes = Array.from(rowChecks)
       .filter((c) => c.checked)
       .map((c) => parseInt(c.dataset.index));
 
-    const filteredDatas = selectedIndexes.map((i) => datas[i]);
-    const assessments = convertToAssessments(filteredDatas);
+    const selectedDatas = selectedIndexes.map((i) => datas[i]);
 
-    if (assessments.length < 2) {
+    const allAssessments = convertToAssessments(selectedDatas);
+    window.drawAllCharts(allAssessments);
+
+    const compareDatas = [...selectedDatas]
+      .filter((d) => d?.Date)
+      .sort((a, b) => new Date(b.Date) - new Date(a.Date))
+      .slice(0, 2);
+
+    if (compareDatas.length < 2) {
       renderTrendSummary(null);
     } else {
-      renderTrendSummary(calculateTrend(assessments));
+      const compareAssessments = convertToAssessments(compareDatas);
+      renderTrendSummary(calculateTrend(compareAssessments));
     }
 
-    window.drawAllCharts(assessments);
+    updateCompareHint(selectedDatas, compareDatas);
   }
 
   rowChecks.forEach((c) => c.addEventListener("change", updateCharts));
 
   checkAllBtn.addEventListener("click", () => {
+    if (window.isEmptyByDateFilter) return;
     rowChecks.forEach((c) => (c.checked = true));
     updateCharts();
   });
 
   uncheckAllBtn.addEventListener("click", () => {
+    if (window.isEmptyByDateFilter) return;
     rowChecks.forEach((c) => (c.checked = false));
     updateCharts();
   });
 
-  // 初始
   updateCharts();
 };

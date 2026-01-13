@@ -27,7 +27,6 @@
         <div class="patient-header-top">
           <button data-lang="back" class="app-back" id="backBtn">
             <i class="fa-solid fa-arrow-left"></i>
-            返回
           </button>
 
           <div class="patient-title">
@@ -35,57 +34,55 @@
               <i class="fa-solid fa-user-injured"></i>
               <h1 id="personName"></h1>
             </div>
-            <div class="patient-subtitle">個人功能評估分析報告</div>
           </div>
         </div>
 
         <div id="personInfo" class="patient-meta"></div>
-      </header>
-
-      <section id="reportHeadline" class="headline clinical-headline">
-        <div class="headline-left">
-          <div class="headline-badge" data-tone="neutral">
-            <i class="fa-solid fa-circle-info"></i>
-            <span>載入分析中…</span>
-          </div>
-          <div class="headline-text">
-            <div class="headline-title">近期功能變化重點</div>
-            <div class="headline-desc">
-              系統自動比對最近兩筆評估結果，提供臨床判讀建議。
+        <section
+          id="reportHeadline"
+          class="headline clinical-headline"
+          data-status="critical"
+        >
+          <div class="headline-left">
+            <div class="headline-badge" data-tone="neutral">
+              <i class="fa-solid fa-circle-info"></i>
+              <span data-lang="headlineLoading"></span>
+            </div>
+            <div class="headline-text">
+              <div
+                class="headline-title"
+                data-lang="headlineDefaultTitle"
+              ></div>
+              <div class="headline-desc" data-lang="headlineDefaultDesc"></div>
             </div>
           </div>
-        </div>
 
-        <div class="headline-right">
-          <div class="headline-meta">
-            <div class="meta-label">比較區間</div>
-            <div id="reportRange" class="meta-value">--</div>
+          <div class="headline-right">
+            <div class="headline-meta">
+              <div class="meta-label" data-lang="compareRange"></div>
+              <div id="reportRange" class="meta-value">--</div>
+            </div>
           </div>
-          <div class="headline-meta">
-            <div class="meta-label">整體判讀</div>
-            <div id="reportStatus" class="meta-value">--</div>
+        </section>
+        <section class="panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span data-lang="panelTrendSummary"></span>
+              </h2>
+              <div class="panel-hint"></div>
+            </div>
           </div>
-        </div>
-      </section>
+          <div class="panel-body">
+            <div id="trendSummary"></div>
+          </div>
+        </section>
+      </header>
 
       <main class="report">
         <div class="layout">
-          <div>
-            <section class="panel">
-              <div class="panel-header">
-                <div>
-                  <h2 class="panel-title">
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-                    評估變化重點摘要
-                  </h2>
-                  <div class="panel-hint">最近兩筆資料的變化百分比</div>
-                </div>
-              </div>
-              <div class="panel-body">
-                <div id="trendSummary"></div>
-              </div>
-            </section>
-
+          <div class="layout-left">
             <!-- 表格 -->
 
             <section class="panel">
@@ -93,9 +90,9 @@
                 <div>
                   <h2 class="panel-title">
                     <i class="fa-solid fa-table"></i>
-                    評估紀錄明細
+                    <span data-lang="panelRecordList"></span>
                   </h2>
-                  <div class="panel-hint">可勾選兩筆資料來比較趨勢摘要</div>
+                  <div class="panel-hint" data-lang="panelRecordHint"></div>
                 </div>
 
                 <div class="panel-actions">
@@ -103,16 +100,12 @@
                     id="checkAllBtn"
                     class="btn-soft"
                     data-lang="selectAll"
-                  >
-                    全選
-                  </button>
+                  ></button>
                   <button
                     id="uncheckAllBtn"
                     class="btn-soft secondary"
                     data-lang="unselectAll"
-                  >
-                    取消全選
-                  </button>
+                  ></button>
                 </div>
               </div>
 
@@ -139,17 +132,14 @@
           </div>
 
           <!-- ===== RIGHT：圖表 ===== -->
-          <div>
+          <div class="layout-right">
             <section class="panel">
               <div class="panel-header">
                 <div>
                   <h2 class="panel-title">
                     <i class="fa-solid fa-chart-line"></i>
-                    趨勢分析圖表
+                    <span data-lang="panelTrendChart"></span>
                   </h2>
-                  <div class="panel-hint">
-                    圖表提供趨勢視覺化，摘要區提供快速判讀
-                  </div>
                 </div>
               </div>
 

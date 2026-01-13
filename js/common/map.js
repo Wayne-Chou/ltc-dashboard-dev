@@ -80,7 +80,7 @@ function initMap() {
 
         new LabelOverlay(
           position,
-          `${tLocation(nameKey)}<br>${t("userCount")}: ${loc.Count}`,
+          `${tLocation(nameKey)}<br>${t("assessedCount")}: ${loc.Count}`,
           map
         );
 

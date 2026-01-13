@@ -2,14 +2,14 @@
 function getFlatpickrLocale(lang) {
   switch (lang) {
     case "zh":
-      return "zh_tw";
+      return flatpickr.l10ns.zh_tw;
     case "ja":
-      return "ja";
+      return flatpickr.l10ns.ja;
     case "ko":
-      return "ko";
+      return flatpickr.l10ns.ko;
     case "en":
     default:
-      return "default"; // 英文
+      return flatpickr.l10ns.default;
   }
 }
 
@@ -41,7 +41,7 @@ function getClinicalStatus(a) {
 
 const { id, file } = window.getPersonParams();
 document.getElementById("personName").textContent = "載入中...";
-
+const panelActions = document.querySelector(".panel-actions");
 fetch(file)
   .then((res) => res.json())
   .then((all) => {
@@ -88,7 +88,7 @@ fetch(file)
         mode: "range",
         dateFormat: "Y-m-d",
         altInput: true,
-
+        altFormat: "Y/m/d",
         locale: getFlatpickrLocale(window.currentLang),
 
         onReady(selectedDates, dateStr, instance) {
@@ -120,6 +120,11 @@ fetch(file)
 
       renderTable(currentDatas);
       setupCheckboxes(currentDatas);
+      if (panelActions) {
+        if (currentDatas.length === 0) {
+          panelActions.classList.add("hidden-by-filter");
+        }
+      }
     }
 
     document.getElementById("clearBtn")?.addEventListener("click", () => {
@@ -131,6 +136,9 @@ fetch(file)
 
       renderTable(currentDatas);
       setupCheckboxes(currentDatas);
+      if (panelActions) {
+        panelActions.classList.remove("hidden-by-filter");
+      }
     });
 
     // ===== 以下全部是你原本的圖表 / 狀態邏輯 =====

@@ -31,6 +31,7 @@ function initDateFilter() {
   const paginationContainer = document.getElementById(
     "tablePaginationContainer"
   );
+
   const viewAllBtn = document.getElementById("viewAllBtn");
   const checkAllBtn = document.getElementById("checkAllBtn");
   const uncheckAllBtn = document.getElementById("uncheckAllBtn");
