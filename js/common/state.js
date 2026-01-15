@@ -18,3 +18,20 @@ window.lastRenderedAssessments = [];
 
 // Level 模式下展平後的人員資料
 window.lastLevelPersons = [];
+
+// ===== 群體比對狀態（A vs B）=====
+window.groupCompareState = {
+  enabled: false,
+
+  groupA: {
+    start: null,
+    end: null,
+    assessments: [],
+  },
+
+  groupB: {
+    start: null,
+    end: null,
+    assessments: [],
+  },
+};
