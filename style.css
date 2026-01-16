@@ -35,7 +35,7 @@ body {
 
 .page-wrapper {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
   width: 100%;
   background-color: #f5f7fa;
   font-family: "Noto Sans TC", system-ui, -apple-system, BlinkMacSystemFont,
@@ -115,18 +115,18 @@ body {
 }
 
 .sidebar {
-  width: 300px;
-  min-height: 100vh;
-
-  background-color: #f1f5f9;
   padding: 32px 20px;
   position: sticky;
   top: 0;
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid #e2e8f0;
 
   box-shadow: inset -10px 0 20px -15px rgba(0, 0, 0, 0.05);
+  width: 300px;
+  height: 100%;
+  flex-shrink: 0;
+  background-color: #fff;
+  border-right: 1px solid #dee2e6;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar .custom-header {
@@ -238,9 +238,13 @@ body {
    ========================================= */
 
 .main-content {
-  flex: 1;
   padding: 24px 32px;
   background-color: #f5f7fa;
+  flex-grow: 1;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #f9fafb;
+  position: relative;
 }
 
 .main-content > div {
@@ -291,17 +295,10 @@ body {
   display: flex;
 }
 
-.main-content {
-  flex-grow: 1;
-  background-color: #f8f9fa;
-  padding: 20px;
-  overflow-x: hidden;
-}
-
 #sidebarToggle {
   position: absolute;
-  right: -15px;
-  top: 25px;
+  right: 5px;
+  top: 8px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -323,7 +320,7 @@ body {
 
 @media (max-width: 992px) {
   .page-wrapper {
-    flex-direction: column; /* 手機版內容垂直排列 */
+    flex-direction: column;
   }
 
   .sidebar {
@@ -331,26 +328,25 @@ body {
     top: 0;
     left: 0;
     height: 100vh;
-    width: 280px; /* 展開時的寬度 */
+    width: 280px;
     z-index: 2000;
     background-color: #f1f5f9;
-    transform: translateX(0); /* 預設位移歸零 */
+    transform: translateX(0);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
   }
 
-  /* 手機版：收起時「完全推出」螢幕外 */
   .sidebar.collapsed {
-    width: 280px !important; /* 寬度不變 */
+    width: 280px !important;
     min-width: 280px !important;
-    transform: translateX(-100%); /* 往左推 100% (完全隱藏) */
-    padding: 32px 20px !important; /* 維持內距避免擠壓 */
+    transform: translateX(-100%);
+    padding: 32px 20px !important;
   }
 
   /* 關鍵：調整收合按鈕在手機上的位置 */
   #sidebarToggle {
     position: absolute;
-    right: -45px; /* 當側邊欄在外面時，按鈕會彈出來在螢幕左側邊緣 */
+    right: -45px;
     top: 15px;
     background-color: #334155 !important;
     color: white !important;
@@ -366,7 +362,6 @@ body {
     width: 100%;
   }
 
-  /* 讓導覽選單在手機版依然顯示 (因為你之前寫 display: none) */
   .sidebar.collapsed .sidebar-inner-content {
     display: block !important;
   }
