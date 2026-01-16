@@ -219,7 +219,6 @@ function renderGroupCompareResult(summaryA, summaryB) {
 
   const row = (label, a, b, unit = "", better = "higher") => {
     const diff = Number(diffPercent(a, b));
-
     let cls = "text-muted";
     let icon = "—";
 
@@ -245,48 +244,48 @@ function renderGroupCompareResult(summaryA, summaryB) {
 
   container.innerHTML = `
     <div class="mb-3 d-flex justify-content-between flex-wrap gap-2 small">
-      <div>第一個日期區間｜人數 ${summaryA.uniquePeople}｜人次 ${
-    summaryA.totalVisits
-  }</div>
-      <div>第二個日期區間｜人數 ${summaryB.uniquePeople}｜人次 ${
-    summaryB.totalVisits
-  }</div>
+      <div>${t("basePeriod")}｜${t("people")} ${summaryA.uniquePeople}｜${t(
+    "visits"
+  )} ${summaryA.totalVisits}</div>
+      <div>${t("compPeriod")}｜${t("people")} ${summaryB.uniquePeople}｜${t(
+    "visits"
+  )} ${summaryB.totalVisits}</div>
     </div>
 
     <div class="table-responsive">
       <table class="table table-sm align-middle">
         <thead class="table-light">
           <tr>
-            <th>指標</th>
-            <th>第一區間</th>
-            <th>第二區間</th>
-            <th>變化</th>
+            <th>${t("metric")}</th>
+            <th>${t("baseline")}</th>
+            <th>${t("comparison")}</th>
+            <th>${t("change")}</th>
           </tr>
         </thead>
         <tbody>
           ${row(
-            "平均坐站秒數",
+            t("avgSitStand"),
             summaryA.avgChair,
             summaryB.avgChair,
-            " 秒",
+            " " + t("seconds"),
             "lower"
           )}
           ${row(
-            "平均平衡得分",
+            t("avgBalanceScore"),
             summaryA.avgBalance,
             summaryB.avgBalance,
-            "",
+            " " + t("points"),
             "higher"
           )}
           ${row(
-            "平均步行速度",
+            t("avgGaitSpeed"),
             summaryA.avgGait,
             summaryB.avgGait,
             " cm/s",
             "higher"
           )}
           ${row(
-            "平均跌倒風險",
+            t("avgFallRisk"),
             summaryA.avgRisk,
             summaryB.avgRisk,
             " %",
@@ -299,7 +298,7 @@ function renderGroupCompareResult(summaryA, summaryB) {
 }
 
 /* =================================================
- * 渲染比較結果（視覺統一優化版）
+ * 渲染比較結果
  * ================================================= */
 function renderGroupCompare() {
   const st = window.groupCompareState;
@@ -311,8 +310,8 @@ function renderGroupCompare() {
     container.innerHTML = `
       <div class="compare-placeholder">
         <div class="icon-circle text-secondary"><i class="bi bi-power"></i></div>
-        <h6 class="fw-bold">尚未啟用比較模式</h6>
-        <p class="text-muted small">請開啟右上方開關，開始進行兩段日期區間的數據對照</p>
+        <h6 class="fw-bold">${t("notEnabledTitle")}</h6>
+        <p class="text-muted small">${t("notEnabledDesc")}</p>
       </div>
     `;
     return;
@@ -326,21 +325,23 @@ function renderGroupCompare() {
     container.innerHTML = `
       <div class="compare-placeholder active">
         <div class="icon-circle text-primary"><i class="bi bi-cursor-fill"></i></div>
-        <h6 class="fw-bold text-primary">等待日期區間選取</h6>
-        <p class="text-muted small">請點擊上方輸入框，設定基準期與對照期的日期範圍</p>
+        <h6 class="fw-bold text-primary">${t("waitingDateTitle")}</h6>
+        <p class="text-muted small">${t("waitingDateDesc")}</p>
       </div>
     `;
     return;
   }
 
-  // 3. 樣式 C：時間順序邏輯錯誤 (統一視覺)
+  // 3. 樣式 C：時間順序邏輯錯誤
   if (st.groupA.end > st.groupB.start) {
     container.innerHTML = `
       <div class="compare-placeholder border-danger bg-light-danger">
         <div class="icon-circle text-danger"><i class="bi bi-calendar-x"></i></div>
-        <h6 class="fw-bold text-danger">日期順序不正確</h6>
-        <p class="text-muted small">對照期（第二區間）的開始日期，必須晚於基準期（第一區間）的結束日期</p>
-        <button class="btn btn-sm btn-outline-danger mt-2" onclick="window.fpGroupB.clear()">重新選擇第二區間</button>
+        <h6 class="fw-bold text-danger">${t("dateOrderErrorTitle")}</h6>
+        <p class="text-muted small">${t("dateOrderErrorDesc")}</p>
+        <button class="btn btn-sm btn-outline-danger mt-2" onclick="window.fpGroupB.clear()">${t(
+          "reselectSecond"
+        )}</button>
       </div>
     `;
     return;
@@ -351,30 +352,32 @@ function renderGroupCompare() {
 
   // 4. 樣式 D：區間內查無資料
   if (!a.length || !b.length) {
-    const missing = !a.length ? "基準期" : "對照期";
+    const missingTerm = !a.length ? t("baseline") : t("comparison");
     container.innerHTML = `
       <div class="compare-placeholder border-warning bg-light-warning">
         <div class="icon-circle text-warning"><i class="bi bi-database-exclamation"></i></div>
-        <h6 class="fw-bold text-dark">該區間查無檢測資料</h6>
-        <p class="text-muted small">您的「${missing}」所選範圍內沒有任何紀錄，請嘗試選擇其他日期</p>
+        <h6 class="fw-bold text-dark">${t("noDataTitle")}</h6>
+        <p class="text-muted small">${t("noDataDesc").replace(
+          "{missing}",
+          missingTerm
+        )}</p>
       </div>
     `;
     return;
   }
 
-  // 5. 樣式 E：正式數據表格
   renderGroupCompareResultTable(calcGroupSummary(a), calcGroupSummary(b));
 }
 
 /* =================================================
- * 正式結果渲染 (與您之前的內容一致，僅確保單位與樣式)
+ * 正式結果渲染
  * ================================================= */
 function renderGroupCompareResultTable(summaryA, summaryB) {
   const container = document.getElementById("groupCompareResult");
 
   const riskDiff = Number(diffPercent(summaryA.avgRisk, summaryB.avgRisk));
   const riskTrendClass = riskDiff <= 0 ? "text-success" : "text-danger";
-  const riskTrendText = riskDiff <= 0 ? "風險改善" : "風險上升";
+  const riskTrendText = riskDiff <= 0 ? t("riskImproved") : t("riskIncreased");
 
   const row = (label, a, b, unit = "", better = "higher") => {
     const diff = Number(diffPercent(a, b));
@@ -401,21 +404,21 @@ function renderGroupCompareResultTable(summaryA, summaryB) {
     <div class="row g-2 mb-4">
       <div class="col-md-6">
         <div class="p-3 border rounded-3 bg-light">
-          <div class="small text-muted mb-1">基準期：${
-            summaryA.uniquePeople
-          } 人 / ${summaryA.totalVisits} 人次</div>
-          <div class="h5 fw-bold mb-0 text-dark">平均風險：${summaryA.avgRisk.toFixed(
-            1
-          )}%</div>
+          <div class="small text-muted mb-1">${t("baseline")}：${
+    summaryA.uniquePeople
+  } ${t("people")} / ${summaryA.totalVisits} ${t("visits")}</div>
+          <div class="h5 fw-bold mb-0 text-dark">${t(
+            "avgFallRisk"
+          )}：${summaryA.avgRisk.toFixed(1)}%</div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="p-3 border rounded-3 ${
           riskDiff <= 0 ? "border-success" : "border-danger"
         } bg-white">
-          <div class="small text-muted mb-1">對照期：${
-            summaryB.uniquePeople
-          } 人 / ${summaryB.totalVisits} 人次</div>
+          <div class="small text-muted mb-1">${t("comparison")}：${
+    summaryB.uniquePeople
+  } ${t("people")} / ${summaryB.totalVisits} ${t("visits")}</div>
           <div class="h5 fw-bold mb-0 ${riskTrendClass}">${riskTrendText} ${Math.abs(
     riskDiff
   )}%</div>
@@ -427,36 +430,36 @@ function renderGroupCompareResultTable(summaryA, summaryB) {
       <table class="table table-hover align-middle mb-0 bg-white">
         <thead class="bg-light">
           <tr>
-            <th class="text-secondary small">指標</th>
-            <th class="text-secondary small">基準期</th>
-            <th class="text-secondary small">對照期</th>
-            <th class="text-secondary small">變化</th>
+            <th class="text-secondary small">${t("metric")}</th>
+            <th class="text-secondary small">${t("baseline")}</th>
+            <th class="text-secondary small">${t("comparison")}</th>
+            <th class="text-secondary small">${t("change")}</th>
           </tr>
         </thead>
         <tbody>
           ${row(
-            "平均坐站秒數",
+            t("avgSitStand"),
             summaryA.avgChair,
             summaryB.avgChair,
-            " 秒",
+            " " + t("seconds"),
             "lower"
           )}
           ${row(
-            "平均平衡得分",
+            t("avgBalanceScore"),
             summaryA.avgBalance,
             summaryB.avgBalance,
-            " 分",
+            " " + t("points"),
             "higher"
           )}
           ${row(
-            "平均步行速度",
+            t("avgGaitSpeed"),
             summaryA.avgGait,
             summaryB.avgGait,
             " cm/s",
             "higher"
           )}
           ${row(
-            "平均跌倒風險",
+            t("avgFallRisk"),
             summaryA.avgRisk,
             summaryB.avgRisk,
             " %",
@@ -523,20 +526,19 @@ function initGroupCompare() {
     },
   });
 
-  // 4. 第二區間選擇器（已移除 Alert，統一交給 Render 判斷）
+  // 4. 第二區間選擇器
   window.fpGroupB = flatpickr(inputB, {
     mode: "range",
     dateFormat: "Y-m-d",
     locale: getFlatpickrLocale(window.currentLang),
     onChange: ([start, end]) => {
       if (start && end) {
-        // 純粹更新狀態，不論日期對錯
         window.groupCompareState.groupB = {
           start,
           end,
           assessments: getAssessmentsByRange(start, end),
         };
-        // 由 render 函數根據 state 顯示「正確表格」或「日期錯誤提示」
+
         renderGroupCompare();
       }
     },

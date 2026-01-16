@@ -1,184 +1,3 @@
-// // js/common/table.js
-
-// function initTable() {
-//   window.currentPage = 1;
-
-//   //  保險初始化
-//   if (!Array.isArray(window.selected)) window.selected = [];
-//   if (typeof window.checkAllAcrossPages !== "boolean")
-//     window.checkAllAcrossPages = false;
-//   if (!window.pageSize) window.pageSize = 10;
-
-//   //  關鍵：要綁全選/取消全選
-//   initCheckAllButtons();
-// }
-
-// // ===== 表格渲染 =====
-// function renderAssessmentTable(assessments) {
-//   window.lastRenderedAssessments = assessments;
-
-//   const tbody = document.getElementById("assessmentTableBody");
-//   const pagination = document.getElementById("tablePaginationContainer");
-
-//   if (!tbody || !pagination) return;
-
-//   tbody.innerHTML = "";
-//   pagination.innerHTML = "";
-
-//   if (!assessments || assessments.length === 0) return;
-
-//   // 日期排序（新 → 舊）
-//   const sorted = [...assessments].sort((a, b) => b.Date - a.Date);
-
-//   const totalPages = Math.ceil(sorted.length / window.pageSize);
-//   if (window.currentPage > totalPages) window.currentPage = totalPages;
-//   if (window.currentPage < 1) window.currentPage = 1;
-
-//   const start = (window.currentPage - 1) * window.pageSize;
-//   const pageData = sorted.slice(start, start + window.pageSize);
-
-//   // 初始全選（如果你想保留）
-//   if (window.checkAllAcrossPages && window.selected.length === 0) {
-//     window.selected = assessments.map((_, i) => i);
-//   }
-
-//   pageData.forEach((item) => {
-//     const tr = document.createElement("tr");
-
-//     const date = new Date(item.Date);
-//     const dateText = `${date.getFullYear()}/${(date.getMonth() + 1)
-//       .toString()
-//       .padStart(2, "0")}/${date.getDate().toString().padStart(2, "0")}`;
-
-//     const globalIndex = assessments.indexOf(item);
-//     const checked = window.selected.includes(globalIndex);
-
-//     tr.innerHTML = `
-//       <td><input type="checkbox" class="row-check" data-index="${globalIndex}" ${
-//       checked ? "checked" : ""
-//     }></td>
-//       <td>${dateText}</td>
-//       <td>${item.Count}${t("people")}</td>
-//       <td>${item.ChairSecond.toFixed(1)}${t("seconds")}</td>
-//       <td>${item.BalanceScore.toFixed(1)}${t("points")}</td>
-//       <td>${item.GaitSpeed.toFixed(1)} cm/s</td>
-//       <td>${item.RiskRate.toFixed(1)}%</td>
-//     `;
-
-//     tbody.appendChild(tr);
-//   });
-
-//   bindRowCheckbox(assessments);
-//   renderPagination(totalPages, assessments);
-
-//   syncUIBySelection(assessments);
-// }
-
-// // ===== checkbox 綁定 =====
-// function bindRowCheckbox(assessments) {
-//   document.querySelectorAll(".row-check").forEach((cb) => {
-//     cb.addEventListener("change", () => {
-//       const idx = parseInt(cb.dataset.index, 10);
-
-//       if (cb.checked) {
-//         if (!window.selected.includes(idx)) window.selected.push(idx);
-//       } else {
-//         window.selected = window.selected.filter((i) => i !== idx);
-//       }
-
-//       window.checkAllAcrossPages =
-//         window.selected.length === assessments.length;
-
-//       syncUIBySelection(assessments);
-//     });
-//   });
-// }
-
-// // ===== 分頁 =====
-// function renderPagination(totalPages, assessments) {
-//   if (totalPages <= 1) return;
-
-//   const pagination = document.getElementById("tablePaginationContainer");
-//   if (!pagination) return;
-
-//   const prev = document.createElement("button");
-//   prev.className = "btn btn-sm btn-outline-primary";
-//   prev.textContent = t("prevPage");
-//   prev.disabled = window.currentPage === 1;
-//   prev.onclick = () => {
-//     window.currentPage--;
-//     renderAssessmentTable(assessments);
-//   };
-
-//   const next = document.createElement("button");
-//   next.className = "btn btn-sm btn-outline-primary";
-//   next.textContent = t("nextPage");
-//   next.disabled = window.currentPage === totalPages;
-//   next.onclick = () => {
-//     window.currentPage++;
-//     renderAssessmentTable(assessments);
-//   };
-
-//   const info = document.createElement("span");
-//   info.className = "small flex-grow-1 text-center";
-//   info.textContent = `${t("page")} ${window.currentPage} ${t(
-//     "total"
-//   )} ${totalPages}`;
-
-//   pagination.append(prev, info, next);
-// }
-
-// // ===== 勾選後同步其他模組 =====
-// function syncUIBySelection(assessments) {
-//   const selectedAssessments = assessments.filter((_, i) =>
-//     window.selected.includes(i)
-//   );
-
-//   updateRiskButtonsCounts(selectedAssessments);
-//   renderRisk(selectedAssessments);
-//   updateDegenerateAndLevels(selectedAssessments);
-//   updateLatestCountDate(selectedAssessments);
-//   updateTotalCountAndStartDate(selectedAssessments);
-
-//   const mergedV = mergeAllVIVIFRAIL(selectedAssessments);
-//   renderCards(flattenData(mergedV));
-
-//   if (selectedAssessments.length === 0) {
-//     drawNoDataChart();
-//   } else {
-//     drawSitStandChartChartJS(selectedAssessments);
-//     drawBalanceChartChartJS(selectedAssessments);
-//     drawGaitChartChartJS(selectedAssessments);
-//     drawRiskChartChartJS(selectedAssessments);
-//     removeNoDataOverlay();
-//   }
-// }
-
-// // ===== 全選 / 取消全選 =====
-// function initCheckAllButtons() {
-//   const checkAllBtn = document.getElementById("checkAllBtn");
-//   const uncheckAllBtn = document.getElementById("uncheckAllBtn");
-
-//   // 如果按鈕不存在，直接跳過
-//   if (!checkAllBtn || !uncheckAllBtn) return;
-
-//   checkAllBtn.addEventListener("click", () => {
-//     const list = window.lastRenderedAssessments || [];
-//     window.checkAllAcrossPages = true;
-//     window.selected = list.map((_, i) => i);
-
-//     renderAssessmentTable(list);
-//   });
-
-//   uncheckAllBtn.addEventListener("click", () => {
-//     const list = window.lastRenderedAssessments || [];
-//     window.checkAllAcrossPages = false;
-//     window.selected = [];
-
-//     renderAssessmentTable(list);
-//   });
-// }
-
 // js/common/table.js
 
 /// 初始化表格參數
@@ -202,7 +21,7 @@ function initTable(assessments) {
 function renderAssessmentTable(assessments) {
   window.lastRenderedAssessments = assessments;
 
-  // 1. 強制初始化全選 (解決進入頁面未勾選問題)
+  // 1. 強制初始化全選邏輯
   if (
     assessments &&
     assessments.length > 0 &&
@@ -223,11 +42,13 @@ function renderAssessmentTable(assessments) {
   pagination.innerHTML = "";
 
   if (!assessments || assessments.length === 0) {
-    container.innerHTML = `<div class="col-12 text-center py-5 text-muted">目前無檢測資料</div>`;
+    container.innerHTML = `<div class="col-12 text-center py-5 text-muted">${t(
+      "noRecord"
+    )}</div>`;
     return;
   }
 
-  // 排序：新 → 舊
+  // 2. 排序與分頁計算
   const sorted = [...assessments].sort((a, b) => b.Date - a.Date);
   const totalPages = Math.ceil(sorted.length / window.pageSize);
 
@@ -237,9 +58,15 @@ function renderAssessmentTable(assessments) {
   const start = (window.currentPage - 1) * window.pageSize;
   const pageData = sorted.slice(start, start + window.pageSize);
 
+  // 3. 渲染每一張卡片
   pageData.forEach((item) => {
     const globalIndex = assessments.indexOf(item);
     const isSelected = window.selected.includes(globalIndex);
+
+    const participantText = t("participantCount").replace(
+      "{count}",
+      item.Count
+    );
 
     const date = new Date(item.Date);
     const dateText = `${date.getFullYear()}/${(date.getMonth() + 1)
@@ -249,7 +76,6 @@ function renderAssessmentTable(assessments) {
     const cardCol = document.createElement("div");
     cardCol.className = "col-12 col-md-6 col-lg-4 mb-3";
 
-    // 使用您的原始名稱與單位
     cardCol.innerHTML = `
       <div class="card h-100 selectable-card ${
         isSelected ? "border-primary shadow bg-light" : "border-light shadow-sm"
@@ -265,31 +91,35 @@ function renderAssessmentTable(assessments) {
                    style="width: 12px; height: 12px; border-radius: 50%;"></div>
               <span class="fw-bold text-dark">${dateText}</span>
             </div>
-            <span class="badge bg-white text-primary border border-primary-subtle">參與人數 ${
-              item.Count
-            } 人</span>
+            <span class="badge bg-white text-primary border border-primary-subtle">${participantText}</span>
           </div>
 
           <div class="row g-2 text-center mb-3">
             <div class="col-4">
               <div class="p-2 rounded bg-white border">
-                <small class="text-muted d-block small" style="font-size: 0.75rem;">平均坐站秒數</small>
+                <small class="text-muted d-block small" style="font-size: 0.75rem;">${t(
+                  "avgSitStand"
+                )}</small>
                 <span class="fw-bold text-dark">${item.ChairSecond.toFixed(
                   1
-                )}秒</span>
+                )}${t("seconds")}</span>
               </div>
             </div>
             <div class="col-4">
               <div class="p-2 rounded bg-white border">
-                <small class="text-muted d-block small" style="font-size: 0.75rem;">平均平衡得分</small>
+                <small class="text-muted d-block small" style="font-size: 0.75rem;">${t(
+                  "avgBalanceScore"
+                )}</small>
                 <span class="fw-bold text-dark">${item.BalanceScore.toFixed(
                   1
-                )}分</span>
+                )}${t("points")}</span>
               </div>
             </div>
             <div class="col-4">
               <div class="p-2 rounded bg-white border">
-                <small class="text-muted d-block small" style="font-size: 0.75rem;">平均步行速度</small>
+                <small class="text-muted d-block small" style="font-size: 0.75rem;">${t(
+                  "avgGaitSpeed"
+                )}</small>
                 <span class="fw-bold text-dark text-nowrap">${item.GaitSpeed.toFixed(
                   0
                 )} cm/s</span>
@@ -299,10 +129,12 @@ function renderAssessmentTable(assessments) {
 
           <div class="mt-2">
             <div class="d-flex justify-content-between mb-1 small">
-              <span class="text-muted fw-bold">平均跌倒風險</span>
+              <span class="text-muted fw-bold">${t("avgFallRisk")}</span>
               <span class="fw-bold ${
                 item.RiskRate > 20 ? "text-danger" : "text-success"
-              }">${item.RiskRate.toFixed(1)}%</span>
+              }">
+                ${item.RiskRate.toFixed(1)}%
+              </span>
             </div>
             <div class="progress" style="height: 8px; background-color: #e9ecef;">
               <div class="progress-bar ${
@@ -345,7 +177,7 @@ function renderPagination(totalPages, assessments) {
 
   const prev = document.createElement("button");
   prev.className = "btn btn-sm btn-outline-primary px-3";
-  prev.textContent = "上一頁";
+  prev.textContent = t("prevPage");
   prev.disabled = window.currentPage === 1;
   prev.onclick = (e) => {
     e.stopPropagation();
@@ -355,11 +187,13 @@ function renderPagination(totalPages, assessments) {
 
   const info = document.createElement("span");
   info.className = "small text-muted fw-bold";
-  info.textContent = `第 ${window.currentPage} / ${totalPages} 頁`;
+  info.textContent = `${t("page")} ${window.currentPage} ${t(
+    "total"
+  )} ${totalPages} ${window.currentLang === "zh" ? "頁" : ""}`;
 
   const next = document.createElement("button");
   next.className = "btn btn-sm btn-outline-primary px-3";
-  next.textContent = "下一頁";
+  next.textContent = t("nextPage");
   next.disabled = window.currentPage === totalPages;
   next.onclick = (e) => {
     e.stopPropagation();
