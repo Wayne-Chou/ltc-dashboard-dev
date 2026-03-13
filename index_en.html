@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -26,7 +26,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body class="bg-white">
     <div class="custom-container content">
@@ -55,9 +55,9 @@
                   <h2 class="custom-subtitle h5 h4-md h3-lg mb-0">Cedar</h2>
                 </div>
                 <div class="text-end">
-                  <p class="text-secondary mb-0">
+                  <!-- <p class="text-secondary mb-0">
                     Updated:<span class="fw-semibold">2025/07/15</span>
-                  </p>
+                  </p> -->
                 </div>
               </div>
               <div class="dropdown mt-3 d-flex justify-content-between">
@@ -93,7 +93,7 @@
                       <li>
                         <button
                           class="dropdown-item"
-                          onclick="switchLanguage('index.html','zh')"
+                          onclick="switchLanguage('index.html', 'zh')"
                         >
                           繁體中文
                         </button>
@@ -101,7 +101,7 @@
                       <li>
                         <button
                           class="dropdown-item"
-                          onclick="switchLanguage('index_en.html','en')"
+                          onclick="switchLanguage('index_en.html', 'en')"
                         >
                           ENGLISH
                         </button>
@@ -109,23 +109,26 @@
                       <li>
                         <button
                           class="dropdown-item"
-                          onclick="switchLanguage('index_ja.html','ja')"
+                          onclick="switchLanguage('index_ja.html', 'ja')"
                         >
                           日本語
                         </button>
                       </li>
-                      <li>
+                      <!-- <li>
                         <button
                           class="dropdown-item"
-                          onclick="switchLanguage('index_ko.html','ko')"
+                          onclick="switchLanguage('index_ko.html', 'ko')"
                         >
                           한국어
                         </button>
-                      </li>
+                      </li> -->
                     </ul>
                   </div>
                   <button id="downloadBtn" class="btn btn-primary">
                     <i class="bi bi-download me-1"></i> Download
+                  </button>
+                  <button id="logoutBtn" class="btn btn-primary" type="button">
+                    Sign out
                   </button>
                 </div>
               </div>
@@ -249,7 +252,7 @@
                     ></span>
                     <span class="ms-2 mb-1 text-green">people</span>
                   </div>
-                  <p id="latestDate" class="small mt-2 text-green"></p>
+                  <p id="latestDate" class="small mt-2 text-green">161</p>
                 </div>
               </div>
 
@@ -1453,33 +1456,36 @@
 <!-- 日期套件 -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
-<script src="js/common/lang.js"></script>
-<script src="js/common/cookie.js"></script>
-<script src="js/common/map.js"></script>
-<script src="js/common/utils.js"></script>
-<script src="js/common/state.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/zh-tw.js"></script>
+<script src="/js/common/config.js"></script>
+<script src="/js/common/lang.js"></script>
+<script src="/js/common/cookie.js"></script>
+<script src="/js/common/map.js"></script>
+<script src="/js/common/utils.js"></script>
+<script src="/js/common/state.js"></script>
 <!-- 圖表js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1"></script>
-<script src="js/common/riskStats.js"></script>
-<script src="js/common/personCardRisk.js"></script>
-<script src="js/common/personCardLevel.js"></script>
-<script src="js/common/charts/sitStandChart.js"></script>
-<script src="js/common/charts/balanceChart.js"></script>
-<script src="js/common/charts/gaitChart.js"></script>
-<script src="js/common/charts/riskChart.js"></script>
-<script src="js/common/charts/noDataChart.js"></script>
-<script src="js/common/downloadChart.js"></script>
-<script src="js/common/downloadPdf.js"></script>
-<script src="js/common/location.js"></script>
-<script src="js/common/table.js"></script>
-<script src="js/common/dateFilter.js"></script>
-<script src="js/common/groupCompare.js"></script>
-<script src="js/common/modal/detailModal.js"></script>
-<script src="js/common/modal/viewAllModal.js"></script>
-<script src="js/common/sortModeSwitch.js"></script>
-<script src="js/common/initSidebar.js"></script>
-<script src="js/common/main.js"></script>
+<script src="/js/common/riskStats.js"></script>
+<script src="/js/common/personCardRisk.js"></script>
+<script src="/js/common/personCardLevel.js"></script>
+<script src="/js/common/charts/sitStandChart.js"></script>
+<script src="/js/common/charts/balanceChart.js"></script>
+<script src="/js/common/charts/gaitChart.js"></script>
+<script src="/js/common/charts/riskChart.js"></script>
+<script src="/js/common/charts/noDataChart.js"></script>
+<script src="/js/common/downloadChart.js"></script>
+<script src="/js/common/downloadPdf.js"></script>
+<script src="/js/common/location.js"></script>
+<script src="/js/common/table.js"></script>
+<script src="/js/common/dateFilter.js"></script>
+<script src="/js/common/groupCompare.js"></script>
+<script src="/js/common/modal/detailModal.js"></script>
+<script src="/js/common/modal/viewAllModal.js"></script>
+<script src="/js/common/sortModeSwitch.js"></script>
+<script src="/js/common/initSidebar.js"></script>
+<script src="/js/common/logout.js"></script>
+<script src="/js/common/main.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <!-- pdf下載 -->
