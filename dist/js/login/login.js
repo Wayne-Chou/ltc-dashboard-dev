@@ -64,13 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginAlert = document.getElementById("loginAlert");
   const togglePassword = document.querySelector("#togglePassword");
   const eyeIcon = document.querySelector("#eyeIcon");
-  const rememberCheckbox = document.getElementById("rememberMe");
-  const savedUsername = localStorage.getItem("savedUsername");
 
-  if (savedUsername) {
-    usernameInput.value = savedUsername;
-    rememberCheckbox.checked = true;
-  }
   togglePassword.addEventListener("click", function () {
     const type =
       passwordInput.getAttribute("type") === "password" ? "text" : "password";
@@ -167,12 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (result.Data) {
           setCookie("fongai_token", result.Data, 30);
         }
-        // ===== 記住帳號 =====
-        if (rememberCheckbox.checked) {
-          localStorage.setItem("savedUsername", usernameInput.value.trim());
-        } else {
-          localStorage.removeItem("savedUsername");
-        }
+
         const urlParams = new URLSearchParams(window.location.search);
         const redirect = urlParams.get("redirect");
 

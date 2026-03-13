@@ -13,7 +13,7 @@ window.LANG = {
     labelAccount: "帳號",
     labelPassword: "密碼",
     tokenExpired: "登入逾時，請重新登入",
-    labelRemember: "記住帳號",
+    labelRemember: "記住帳號密碼",
   },
   en: {
     mainTitle: "FongAI Co., Ltd. Dashboard",
@@ -30,7 +30,7 @@ window.LANG = {
     labelAccount: "Username",
     labelPassword: "Password",
     tokenExpired: "Session expired, please login again",
-    labelRemember: "Remember username",
+    labelRemember: "Remember Me",
   },
   ja: {
     mainTitle: "FongAI Co., Ltd. ダッシュボード",
@@ -46,7 +46,7 @@ window.LANG = {
     labelAccount: "アカウント",
     labelPassword: "パスワード",
     tokenExpired: "セッションが切れました。再度ログインしてください",
-    labelRemember: "ユーザー名を記憶する",
+    labelRemember: "ログイン情報を保存する",
   },
   ko: {
     mainTitle: "FongAI Co., Ltd. 대시보드",
@@ -62,6 +62,6 @@ window.LANG = {
     labelAccount: "계정",
     labelPassword: "비밀번호",
     tokenExpired: "세션이 만료되었습니다. 다시 로그인하세요",
-    labelRemember: "아이디 저장",
+    labelRemember: "로그인 정보 기억하기",
   },
 };
