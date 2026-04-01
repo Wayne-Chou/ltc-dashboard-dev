@@ -12,6 +12,7 @@ if (ref.includes("index_en.html")) {
 const LANG = {
   zh: {
     alertNoData: "查無資料",
+    back: "返回上一頁",
     Select: "選取",
     Date: "檢測日期",
     sitStand: "坐站秒數",
@@ -111,6 +112,7 @@ const LANG = {
     alertNoData: "No data",
     Select: "Select",
     Date: "Date",
+    back: "Back",
     sitStand: "Sit-Stand (s)",
     balance: "balance",
     balance1: "Balance Score - Feet Together",
@@ -212,6 +214,7 @@ const LANG = {
     alertNoData: "データなし",
     Select: "選択",
     Date: "検査日",
+    back: "戻る",
     sitStand: "座立秒数",
     balance: "バランス",
     balance1: "バランススコア - 並立",
@@ -311,6 +314,7 @@ const LANG = {
     alertNoData: "데이터 없음",
     Select: "선택",
     Date: "검사 날짜",
+    back: "이전으로",
     sitStand: "좌/서 시간",
     balance: "균형",
     balance1: "균형 점수 - 양발 나란히",

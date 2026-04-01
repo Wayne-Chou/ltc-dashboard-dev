@@ -96,6 +96,7 @@ function initDateFilter() {
       refreshLevelUI?.([]);
 
       // 圖表顯示無資料
+      clearAllCharts?.();
       drawNoDataChart?.();
       updateLatestCountDate?.([]);
       updateTotalCountAndStartDate?.([]);
@@ -107,12 +108,11 @@ function initDateFilter() {
     showFiltersUI();
 
     renderAssessmentTable(filtered);
-
+    removeNoDataOverlay?.();
     drawSitStandChartChartJS?.(filtered);
     drawBalanceChartChartJS?.(filtered);
     drawGaitChartChartJS?.(filtered);
     drawRiskChartChartJS?.(filtered);
-    removeNoDataOverlay?.();
   }
 
   // 清除按鈕

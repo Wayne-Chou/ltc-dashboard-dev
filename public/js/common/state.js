@@ -35,3 +35,7 @@ window.groupCompareState = {
     assessments: [],
   },
 };
+window.dashboardState = {
+  view: "default", // default | compare
+  selectedSites: [], // ['據點A', '據點B']
+};

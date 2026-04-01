@@ -24,7 +24,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
   </head>
   <body class="bg-white">
     <div class="custom-container content">
@@ -48,7 +48,7 @@
                   <h1 class="custom-title h3 h2-md h1-lg mb-1">
                     AI動的骨格転倒予防グループダッシュボード
                   </h1>
-                  <h2 class="custom-subtitle h5 h4-md h3-lg mb-0">杉</h2>
+                  <!-- <h2 class="custom-subtitle h5 h4-md h3-lg mb-0">杉</h2> -->
                 </div>
                 <div class="text-end">
                   <!-- <p class="text-secondary mb-0">
@@ -119,9 +119,9 @@
                       </li> -->
                     </ul>
                   </div>
-                  <button id="downloadBtn" class="btn btn-primary">
+                  <!-- <button id="downloadBtn" class="btn btn-primary">
                     <i class="bi bi-download me-1"></i> ダウンロード
-                  </button>
+                  </button> -->
                   <button id="logoutBtn" class="btn btn-primary" type="button">
                     サインアウト
                   </button>
@@ -291,7 +291,7 @@
             </div>
           </div>
           <!-- 群體比對 -->
-          <div class="mt-4 hide-on-all mb-4" id="groupCompareSection">
+          <!-- <div class="mt-4 hide-on-all mb-4" id="groupCompareSection">
             <div class="bg-white p-4 rounded shadow-sm border">
               <div
                 class="d-flex justify-content-between align-items-center mb-4"
@@ -327,7 +327,7 @@
               <div class="row g-3 mb-4">
                 <div class="col-md-6">
                   <label class="small fw-bold text-muted mb-1"
-                    >第1期間 (基準)</label
+                    >最初の日付</label
                   >
                   <div class="input-group shadow-sm">
                     <input
@@ -343,7 +343,7 @@
                 </div>
                 <div class="col-md-6">
                   <label class="small fw-bold text-muted mb-1"
-                    >第2期間 (比較)</label
+                    >二番目の日付</label
                   >
                   <div class="input-group shadow-sm">
                     <input
@@ -361,7 +361,7 @@
 
               <div id="groupCompareResult"></div>
             </div>
-          </div>
+          </div> -->
           <!-- 風險分級統計區塊 -->
           <div class="mb-4 hide-on-all">
             <h5
@@ -415,7 +415,7 @@
                   </p>
                   <ul id="degenerateList" class="ms-4 text-secondary">
                     <li>歩行速度の低下：<span></span>人々</li>
-                    <li>腹筋運動時間の増加：<span></span>人々</li>
+                    <li>起き上がり速度の低下：<span></span>人々</li>
                   </ul>
                 </div>
                 <div class="col-md-6">

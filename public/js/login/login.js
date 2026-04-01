@@ -1,3 +1,4 @@
+const BASE_URL = "https://service.fongai.co/WebAPI/api";
 document.addEventListener("DOMContentLoaded", () => {
   async function validateOnLoginPage() {
     const token = getCookie("fongai_token");
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (res.status === 401) {
         // token 已無效 → 清掉，留在 login
         deleteCookie("fongai_token");
+        return;
       }
     } catch (e) {
       // validate 失敗時，留在 login
@@ -85,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const labelAcc = document.getElementById("labelAccount");
   const labelPass = document.getElementById("labelPassword");
 
-  const BASE_URL = "https://service.fongai.co/WebAPI/api";
   let currentErrorKey = null;
 
   if (reason === "expired") {

@@ -65,7 +65,7 @@ function renderAssessmentTable(assessments) {
     cardCol.className = "col-12 col-md-6 col-lg-4 mb-3";
     cardCol.innerHTML = `
       <div class="card h-100 selectable-card ${isSelected ? "border-primary shadow bg-light" : "border-light shadow-sm"}" 
-           data-index="${globalIndex}" style="cursor:pointer; border-width:2px; transition:all 0.2s ease;">
+            data-index="${globalIndex}" style="cursor:pointer; border-width:2px; transition:all 0.2s ease;">
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-center mb-3">
             <div class="d-flex align-items-center">
@@ -75,23 +75,23 @@ function renderAssessmentTable(assessments) {
             <span class="badge bg-white text-primary border border-primary-subtle">${participantText}</span>
           </div>
 
-          <div class="row g-2 text-center mb-3">
-            <div class="col-4">
-              <div class="p-2 rounded bg-white border">
-                <small class="text-muted" style="font-size:0.75rem;">${t("avgSitStand")}</small>
-                <span class="fw-bold text-dark">${item.ChairSecond.toFixed(1)}${t("seconds")}</span>
+          <div class="row g-2 mb-3">
+            <div class="col-12">
+              <div class="p-2 rounded bg-white border text-center">
+                <small class="text-muted d-block" style="font-size:0.75rem;">${t("avgSitStand")}</small>
+                <span class="fw-bold text-dark d-block">${item.ChairSecond.toFixed(1)}${t("seconds")}</span>
               </div>
             </div>
-            <div class="col-4">
-              <div class="p-2 rounded bg-white border">
-                <small class="text-muted" style="font-size:0.75rem;">${t("avgBalanceScore")}</small>
-                <span class="fw-bold text-dark">${item.BalanceScore.toFixed(1)}${t("points")}</span>
+            <div class="col-12">
+              <div class="p-2 rounded bg-white border text-center">
+                <small class="text-muted d-block" style="font-size:0.75rem;">${t("avgBalanceScore")}</small>
+                <span class="fw-bold text-dark d-block">${item.BalanceScore.toFixed(1)}${t("points")}</span>
               </div>
             </div>
-            <div class="col-4">
-              <div class="p-2 rounded bg-white border">
-                <small class="text-muted" style="font-size:0.75rem;">${t("avgGaitSpeed")}</small>
-                <span class="fw-bold text-dark">${item.GaitSpeed.toFixed(0)} cm/s</span>
+            <div class="col-12">
+              <div class="p-2 rounded bg-white border text-center">
+                <small class="text-muted d-block" style="font-size:0.75rem;">${t("avgGaitSpeed")}</small>
+                <span class="fw-bold text-dark d-block">${item.GaitSpeed.toFixed(0)} cm/s</span>
               </div>
             </div>
           </div>
@@ -207,9 +207,11 @@ function syncUIBySelection(assessments) {
   }
 
   if (!selectedAssessments.length) {
+    clearAllCharts?.();
     if (typeof drawNoDataChart === "function") drawNoDataChart();
   } else {
     if (typeof drawSitStandChartChartJS === "function") {
+      removeNoDataOverlay?.();
       drawSitStandChartChartJS(selectedAssessments);
       drawBalanceChartChartJS(selectedAssessments);
       drawGaitChartChartJS(selectedAssessments);

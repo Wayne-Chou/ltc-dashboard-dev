@@ -18,13 +18,21 @@
       href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
     />
 
-    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/personDetail.css" />
   </head>
 
   <body class="app">
     <div class="container app-shell">
       <header class="patient-header">
         <div class="patient-header-top">
+          <div class="back-action">
+            <button type="button" class="custom-back-btn" onclick="goBack()">
+              <div class="icon-circle">
+                <i class="fa-solid fa-arrow-left"></i>
+              </div>
+              <span data-lang="back"></span>
+            </button>
+          </div>
           <div class="patient-title">
             <div class="patient-name">
               <i class="fa-solid fa-user-injured"></i>
@@ -82,12 +90,12 @@
             <!-- 表格 -->
 
             <section class="panel">
+              <h2 class="panel-title">
+                <i class="fa-solid fa-table"></i>
+                <span data-lang="panelRecordList"></span>
+              </h2>
               <div class="panel-header">
                 <div>
-                  <h2 class="panel-title">
-                    <i class="fa-solid fa-table"></i>
-                    <span data-lang="panelRecordList"></span>
-                  </h2>
                   <div class="panel-hint" data-lang="panelRecordHint"></div>
                 </div>
 

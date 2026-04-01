@@ -4,12 +4,12 @@ const LANG = {
     groupComparison: "群體比較分析",
     enableCompare: "啟用比較模式",
     compareDesc: "比較不同時間區間的整體變化（以群體平均值為基準）",
-    basePeriod: "第一個日期區間 (基準期)",
-    compPeriod: "第二個日期區間 (對照期)",
+    basePeriod: "第一個日期",
+    compPeriod: "第二個日期",
     selectDateRange: "請選擇開始至結束日期",
     clear: "清除",
-    baseline: "基準期",
-    comparison: "對照期",
+    baseline: "第一個日期",
+    comparison: "第二個日期",
     metric: "指標",
     change: "變化",
     riskImproved: "風險改善",
@@ -19,9 +19,8 @@ const LANG = {
     waitingDateTitle: "等待日期區間選取",
     waitingDateDesc: "請點擊上方輸入框，設定基準期與對照期的日期範圍",
     dateOrderErrorTitle: "日期順序不正確",
-    dateOrderErrorDesc:
-      "對照期（第二區間）的開始日期，必須晚於基準期（第一區間）的結束日期",
-    reselectSecond: "重新選擇第二區間",
+    dateOrderErrorDesc: "第 2 個日期必須晚於第 1 個日期",
+    reselectSecond: "重新篩選第 2 個日期",
     noDataTitle: "該區間查無檢測資料",
     noDataDesc: "您的「{missing}」所選範圍內沒有任何紀錄，請嘗試選擇其他日期",
     visits: "人次",
@@ -87,10 +86,10 @@ const LANG = {
     month: "月",
     noDataThisMonth: "本月無資料",
     levelOverviewText:
-      "顯示每位受測者的最新測驗結果，共 {people} 位受測者（{records} 筆測驗資料）。",
+      "顯示每位參與者的最新測驗結果，共 {people} 位受測者（{records} 筆測驗資料）。",
     levelSingleText: "{levelName}：共 {people} 位受測者（{records} 筆資料）。",
     overviewAllText:
-      "顯示每位受測者的最新測驗結果，共 {people} 位受測者（{records} 筆測驗資料）。",
+      "顯示每位參與者的最新測驗結果，共 {people} 位受測者（{records} 筆測驗資料）。",
     overviewLevelText: "{level}：共 {people} 位受測者（{records} 筆資料）。",
     assessedCount: "鑑測人數",
     locations: {
@@ -106,12 +105,12 @@ const LANG = {
     enableCompare: "Enable Comparison Mode",
     compareDesc:
       "Compare overall changes across time periods (based on group averages)",
-    basePeriod: "First Date Range (Baseline)",
-    compPeriod: "Second Date Range (Comparison)",
+    basePeriod: "First Date",
+    compPeriod: "Second Date",
     selectDateRange: "Select Start and End Dates",
     clear: "Clear",
-    baseline: "Baseline",
-    comparison: "Comparison",
+    baseline: "First Date",
+    comparison: "Second Date",
     metric: "Metric",
     change: "Change",
     riskImproved: "Risk Improved",
@@ -123,9 +122,8 @@ const LANG = {
     waitingDateDesc:
       "Click the input fields above to set the baseline and comparison date ranges.",
     dateOrderErrorTitle: "Invalid Date Order",
-    dateOrderErrorDesc:
-      "The start of the comparison period must be after the end of the baseline period.",
-    reselectSecond: "Reselect Second Range",
+    dateOrderErrorDesc: "The 2nd date must be later than the 1st date.",
+    reselectSecond: "Reselect the 2nd date",
     noDataTitle: "No Data Found in Range",
     noDataDesc:
       'No records found in your "{missing}" range. Please try another date.',
@@ -192,10 +190,10 @@ const LANG = {
     month: "Month",
     noDataThisMonth: "No data this month",
     levelOverviewText:
-      "Showing the latest test results of each participant, total {people} participants ({records} test records).",
+      "Displays the latest quiz results for each participant, with a total of {people} examinees ({records} test records).",
     levelSingleText: "{levelName}: {people} participants ({records} records).",
     overviewAllText:
-      "Showing the latest result of each participant. Total {people} participants ({records} test records).",
+      "Displays the latest quiz results for each participant, with a total of {people} examinees ({records} test records).",
     overviewLevelText: "{level}: {people} participants ({records} records).",
     assessedCount: "Number of people assessed",
     locations: {
@@ -209,12 +207,12 @@ const LANG = {
     groupComparison: "グループ比較分析",
     enableCompare: "比較モードを有効にする",
     compareDesc: "期間ごとの全体的な変化を比較（グループ平均を基準）",
-    basePeriod: "第1期間 (基準)",
-    compPeriod: "第2期間 (比較)",
+    basePeriod: "最初の日付",
+    compPeriod: "二番目の日付",
     selectDateRange: "開始日と終了日を選択してください",
     clear: "クリア",
-    baseline: "基準期間",
-    comparison: "比較期間",
+    baseline: "最初の日付",
+    comparison: "二番目の日付",
     metric: "指標",
     change: "変化",
     riskImproved: "リスク改善",
@@ -227,8 +225,8 @@ const LANG = {
       "上の入力欄をクリックして、基準期間と比較期間を設定してください。",
     dateOrderErrorTitle: "日付の順序が正しくありません",
     dateOrderErrorDesc:
-      "比較期間（第2期間）の開始日は、基準期間（第1期間）の終了日より後である必要があります。",
-    reselectSecond: "第2期間を再選択",
+      "2番目の日付は、1番目の日付より後である必要があります。",
+    reselectSecond: "2番目の日付を再選択",
     noDataTitle: "データが見つかりません",
     noDataDesc:
       "選択された「{missing}」には記録がありません。別の期間を選択してください。",
@@ -295,10 +293,10 @@ const LANG = {
     month: "月",
     noDataThisMonth: "今月データなし",
     levelOverviewText:
-      "各参加者の最新検査結果を表示しています。全 {people} 名（{records} 件の検査データ）。",
+      "各参加者の最新のテスト結果を表示しています。全 {people} 名の受検者（計 {records} 件のテストデータ）がいます。",
     levelSingleText: "{levelName}：全 {people} 名（{records} 件のデータ）。",
     overviewAllText:
-      "各受検者の最新結果を表示しています。合計 {people} 人（{records} 件の検査データ）。",
+      "各参加者の最新のテスト結果を表示しています。全 {people} 名の受検者（計 {records} 件のテストデータ）がいます。",
     overviewLevelText: "{level}：合計 {people} 人（{records} 件）。",
     assessedCount: "鑑測人数",
     locations: {
@@ -312,12 +310,12 @@ const LANG = {
     groupComparison: "그룹 비교 분석",
     enableCompare: "비교 모드 활성화",
     compareDesc: "기간별 전체 변화 비교 (그룹 평균 기준)",
-    basePeriod: "첫 번째 날짜 범위 (기준)",
-    compPeriod: "두 번째 날짜 범위 (대조)",
+    basePeriod: "첫 번째 날짜",
+    compPeriod: "두 번째 날짜",
     selectDateRange: "시작 및 종료 날짜를 선택하세요",
     clear: "지우기",
-    baseline: "기준 기간",
-    comparison: "대조 기간",
+    baseline: "첫 번째 날짜",
+    comparison: "두 번째 날짜",
     metric: "지표",
     change: "변화",
     riskImproved: "위험 개선",
@@ -329,9 +327,8 @@ const LANG = {
     waitingDateDesc:
       "위의 입력란을 클릭하여 기준 기간과 대조 기간을 설정하세요.",
     dateOrderErrorTitle: "날짜 순서가 잘못되었습니다",
-    dateOrderErrorDesc:
-      "대조 기간(두 번째 기간)의 시작일은 기준 기간(첫 번째 기간)의 종료일보다 늦어야 합니다.",
-    reselectSecond: "두 번째 기간 다시 선택",
+    dateOrderErrorDesc: "두 번째 날짜는 첫 번째 날짜보다 나중이어야 합니다.",
+    reselectSecond: "두 번째 날짜 재선택",
     noDataTitle: "데이터 없음",
     noDataDesc:
       '선택한 "{missing}" 내에 기록이 없습니다. 다른 날짜를 선택해 보세요.',
@@ -398,10 +395,10 @@ const LANG = {
     month: "월",
     noDataThisMonth: "이번 달 데이터 없음",
     levelOverviewText:
-      "각 참가자의 최신 검사 결과를 보여줍니다. 총 {people} 명 ({records} 건의 검사 데이터).",
+      "각 참가자의 최신 테스트 결과를 표시합니다. 총 {people} 명의 응시자({records} 개의 테스트 데이터)가 있습니다.",
     levelSingleText: "{levelName}: 총 {people} 명 ({records} 건의 데이터).",
     overviewAllText:
-      "각 참가자의 최신 검사 결과를 표시합니다. 총 {people}명 ({records}건의 검사 기록).",
+      "각 참가자의 최신 테스트 결과를 표시합니다. 총 {people} 명의 응시자({records} 개의 테스트 데이터)가 있습니다.",
     overviewLevelText: "{level}: 총 {people}명 ({records}건).",
     assessedCount: "검사 인원수",
     locations: {

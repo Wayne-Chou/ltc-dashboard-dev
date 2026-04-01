@@ -23,7 +23,7 @@ function initLogoutButton() {
       // 清除 token 並導回登入頁
       document.cookie =
         "fongai_token=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
-      window.location.href = "login.html";
+      window.location.replace("login.html");
     }
   });
 }

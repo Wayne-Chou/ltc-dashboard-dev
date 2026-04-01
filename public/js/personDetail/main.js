@@ -170,5 +170,14 @@ async function initPersonPage() {
     console.error("初始化失敗:", err);
   }
 }
+function goBack() {
+  const params = new URLSearchParams(window.location.search);
+  const returnUrl = params.get("returnUrl");
 
+  if (returnUrl) {
+    window.location.href = decodeURIComponent(returnUrl);
+  } else {
+    window.location.href = "/dashboard/index.html";
+  }
+}
 document.addEventListener("DOMContentLoaded", initPersonPage);
