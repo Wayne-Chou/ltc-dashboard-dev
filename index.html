@@ -37,20 +37,24 @@
                 style="max-width: 150px; height: auto"
                 src="./img/logo.png"
                 alt="建豐健康科技"
+                data-i18n-alt="companyName"
               />
             </div>
             <header class="custom-header mt-4 mb-4">
               <div class="d-flex justify-content-between align-items-center">
                 <div>
-                  <h1 class="custom-title h3 h2-md h1-lg mb-1">
+                  <h1
+                    class="custom-title h3 h2-md h1-lg mb-1"
+                    data-i18n="dashboardTitle"
+                  >
                     AI動態骨架防跌群體儀表板
                   </h1>
                   <!-- <h2 class="custom-subtitle h5 h4-md h3-lg mb-0">香柏樹</h2> -->
                 </div>
                 <div class="text-end">
                   <!-- <p class="text-secondary mb-0">
-                    更新日期：<span class="fw-semibold">2025/07/15</span>
-                  </p> -->
+                更新日期：<span class="fw-semibold">2025/07/15</span>
+              </p> -->
                 </div>
               </div>
               <div class="dropdown mt-3 d-flex justify-content-between">
@@ -60,6 +64,7 @@
                   id="dropdownMenuButton"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
+                  data-i18n="overview"
                 >
                   總表
                 </button>
@@ -78,6 +83,7 @@
                       id="languageMenu"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
+                      data-i18n="language"
                     >
                       Language
                     </button>
@@ -88,7 +94,35 @@
                       <li>
                         <button
                           class="dropdown-item"
+                          onclick="switchLanguage('zh')"
+                          data-i18n="langZh"
+                        >
+                          繁體中文
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="dropdown-item"
+                          onclick="switchLanguage('en')"
+                          data-i18n="langEn"
+                        >
+                          ENGLISH
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="dropdown-item"
+                          onclick="switchLanguage('ja')"
+                          data-i18n="langJa"
+                        >
+                          日本語
+                        </button>
+                      </li>
+                      <!-- <li>
+                        <button
+                          class="dropdown-item"
                           onclick="switchLanguage('index.html', 'zh')"
+                          data-i18n="langZh"
                         >
                           繁體中文
                         </button>
@@ -97,6 +131,7 @@
                         <button
                           class="dropdown-item"
                           onclick="switchLanguage('index_en.html', 'en')"
+                          data-i18n="langEn"
                         >
                           ENGLISH
                         </button>
@@ -105,24 +140,30 @@
                         <button
                           class="dropdown-item"
                           onclick="switchLanguage('index_ja.html', 'ja')"
+                          data-i18n="langJa"
                         >
                           日本語
                         </button>
-                      </li>
-                      <!-- <li>
-                        <button
-                          class="dropdown-item"
-                          onclick="switchLanguage('index_ko.html', 'ko')"
-                        >
-                          한국어
-                        </button>
                       </li> -->
+                      <!-- <li>
+                    <button
+                      class="dropdown-item"
+                      onclick="switchLanguage('index_ko.html', 'ko')"
+                    >
+                      한국어
+                    </button>
+                  </li> -->
                     </ul>
                   </div>
                   <!-- <button id="downloadBtn" class="btn btn-primary">
-                    <i class="bi bi-download me-1"></i>下載
-                  </button> -->
-                  <button id="logoutBtn" class="btn btn-primary" type="button">
+                <i class="bi bi-download me-1"></i>下載
+              </button> -->
+                  <button
+                    id="logoutBtn"
+                    class="btn btn-primary"
+                    type="button"
+                    data-i18n="logout"
+                  >
                     登出
                   </button>
                 </div>
@@ -133,7 +174,7 @@
                     id="compareBtn"
                   >
                     <i class="bi bi-intersect me-1"></i>
-                    群體比較模式
+                    <span data-i18n="compareMode">群體比較模式</span>
                   </button>
                 </div>
               </div>
@@ -151,6 +192,7 @@
                   aria-controls="mainNavbar"
                   aria-expanded="false"
                   aria-label="切換導航"
+                  data-i18n-aria-label="toggleNav"
                 >
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -159,27 +201,42 @@
                 <div class="collapse navbar-collapse" id="mainNavbar">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                      <a class="nav-link fw-bold text-dark" href="#summary"
+                      <a
+                        class="nav-link fw-bold text-dark"
+                        href="#summary"
+                        data-i18n="navSummary"
                         >檢測統計摘要</a
                       >
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link fw-bold text-dark" href="#risk"
+                      <a
+                        class="nav-link fw-bold text-dark"
+                        href="#risk"
+                        data-i18n="navRisk"
                         >風險分級統計</a
                       >
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link fw-bold text-dark" href="#trend"
+                      <a
+                        class="nav-link fw-bold text-dark"
+                        href="#trend"
+                        data-i18n="navTrend"
                         >群體變化趨勢</a
                       >
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link fw-bold text-dark" href="#status"
+                      <a
+                        class="nav-link fw-bold text-dark"
+                        href="#status"
+                        data-i18n="navStatus"
                         >參與者狀態</a
                       >
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link fw-bold text-dark" href="#location"
+                      <a
+                        class="nav-link fw-bold text-dark"
+                        href="#location"
+                        data-i18n="navLocation"
                         >檢測據點分布</a
                       >
                     </li>
@@ -212,7 +269,7 @@
                   d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
                 />
               </svg>
-              檢測統計摘要
+              <span data-i18n="summary">檢測統計摘要</span>
             </h5>
             <div class="my-3 hide-on-all">
               <div class="input-group">
@@ -221,8 +278,13 @@
                   id="dateRange"
                   class="form-control"
                   placeholder="請選擇日期範圍"
+                  data-i18n-placeholder="selectDateRange"
                 />
-                <button class="btn btn-outline-secondary" id="clearBtn">
+                <button
+                  class="btn btn-outline-secondary"
+                  id="clearBtn"
+                  data-i18n="clear"
+                >
                   清除
                 </button>
               </div>
@@ -232,12 +294,16 @@
             <div class="row g-4">
               <div class="col-md-4 main-col">
                 <div class="stat-card stat-blue">
-                  <h6 class="fw-semibold mb-2">總計檢測人數</h6>
+                  <h6 class="fw-semibold mb-2" data-i18n="totalTestedPeople">
+                    總計檢測人數
+                  </h6>
                   <div class="d-flex align-items-end">
                     <span id="totalCount" class="display-6 fw-bold text-blue"
                       >0</span
                     >
-                    <span class="ms-2 mb-1 text-blue">人</span>
+                    <span class="ms-2 mb-1 text-blue" data-i18n="unitPeople"
+                      >人</span
+                    >
                   </div>
                   <p id="startDateText" class="small mt-2 text-blue">
                     尚無資料
@@ -247,13 +313,17 @@
 
               <div class="col-md-4 main-col">
                 <div class="stat-card stat-green">
-                  <h6 class="fw-semibold mb-2">總計檢測人次</h6>
+                  <h6 class="fw-semibold mb-2" data-i18n="totalTestVisits">
+                    總計檢測人次
+                  </h6>
                   <div class="d-flex align-items-end">
                     <span
                       id="latestCount"
                       class="display-6 fw-bold text-green"
                     ></span>
-                    <span class="ms-2 mb-1 text-green">人次</span>
+                    <span class="ms-2 mb-1 text-green" data-i18n="unitVisits"
+                      >人次</span
+                    >
                   </div>
                   <p id="latestDate" class="small mt-2 text-green">尚無資料</p>
                 </div>
@@ -261,13 +331,17 @@
 
               <div class="col-md-4 sechide">
                 <div class="stat-card stat-purple">
-                  <h6 class="fw-semibold mb-2">檢測據點數</h6>
+                  <h6 class="fw-semibold mb-2" data-i18n="locationSiteCount">
+                    檢測據點數
+                  </h6>
                   <div class="d-flex align-items-end">
                     <span
                       id="locationCount"
                       class="display-6 fw-bold text-purple"
                     ></span>
-                    <span class="ms-2 mb-1 text-purple">處</span>
+                    <span class="ms-2 mb-1 text-purple" data-i18n="unitPlaces"
+                      >處</span
+                    >
                   </div>
                   <p id="locationList" class="small mt-2 text-purple"></p>
                 </div>
@@ -276,17 +350,25 @@
 
             <!-- 表格 -->
             <div class="mt-4 hide-on-all">
-              <h6 class="fw-semibold text-secondary mb-3">
+              <h6
+                class="fw-semibold text-secondary mb-3"
+                data-i18n="historyAverageTable"
+              >
                 歷次檢測平均成績表
               </h6>
 
               <div class="d-flex gap-2 mb-3">
-                <button id="checkAllBtn" class="btn btn-outline-primary btn-sm">
+                <button
+                  id="checkAllBtn"
+                  class="btn btn-outline-primary btn-sm"
+                  data-i18n="selectAll"
+                >
                   全選
                 </button>
                 <button
                   id="uncheckAllBtn"
                   class="btn btn-outline-secondary btn-sm"
+                  data-i18n="unselectAll"
                 >
                   取消全選
                 </button>
@@ -307,92 +389,99 @@
             <div class="bg-white p-4 rounded shadow-sm mb-4">
               <h5 class="fw-bold mb-3">
                 <i class="bi bi-intersect me-2"></i>
-                群體比較
+                <span data-i18n="groupCompare">群體比較</span>
               </h5>
 
               <div class="mb-3">
-                <div class="small text-muted mb-2">已選擇據點（最多3個）</div>
+                <div
+                  class="small text-muted mb-2"
+                  data-i18n="selectedSitesLimit"
+                >
+                  已選擇據點（最多3個）
+                </div>
 
                 <div id="selectedSites" class="d-flex flex-wrap gap-2"></div>
               </div>
 
-              <div class="mb-3 text-muted small">👉 點擊下方據點開始比較</div>
+              <div class="mb-3 text-muted small" data-i18n="clickSiteToCompare">
+                👉 點擊下方據點開始比較
+              </div>
 
               <div id="siteSelector" class="row g-2"></div>
             </div>
           </div>
 
           <!-- <div class="mt-4 hide-on-all mb-4" id="groupCompareSection">
-            <div class="bg-white p-4 rounded shadow-sm border">
-              <div
-                class="d-flex justify-content-between align-items-center mb-4"
+        <div class="bg-white p-4 rounded shadow-sm border">
+          <div
+            class="d-flex justify-content-between align-items-center mb-4"
+          >
+            <h5 class="fw-bold text-dark m-0 d-flex align-items-center">
+              <i class="bi bi-intersect text-primary me-2"></i>
+              群體比較分析
+            </h5>
+            <div
+              class="d-flex align-items-center bg-light px-3 py-2 rounded-pill border"
+            >
+              <label
+                class="form-check-label small fw-bold me-2 text-secondary"
+                for="groupCompareToggle"
+                >啟用比較模式</label
               >
-                <h5 class="fw-bold text-dark m-0 d-flex align-items-center">
-                  <i class="bi bi-intersect text-primary me-2"></i>
-                  群體比較分析
-                </h5>
-                <div
-                  class="d-flex align-items-center bg-light px-3 py-2 rounded-pill border"
-                >
-                  <label
-                    class="form-check-label small fw-bold me-2 text-secondary"
-                    for="groupCompareToggle"
-                    >啟用比較模式</label
-                  >
-                  <div class="form-check form-switch m-0">
-                    <input
-                      class="form-check-input custom-switch-lg"
-                      type="checkbox"
-                      id="groupCompareToggle"
-                      style="cursor: pointer; width: 3rem; height: 1.5rem"
-                    />
-                  </div>
-                </div>
+              <div class="form-check form-switch m-0">
+                <input
+                  class="form-check-input custom-switch-lg"
+                  type="checkbox"
+                  id="groupCompareToggle"
+                  style="cursor: pointer; width: 3rem; height: 1.5rem"
+                />
               </div>
-
-              <div class="text-secondary small mb-4 p-2 bg-light rounded">
-                <i class="bi bi-info-circle me-1"></i>
-                比較不同時間區間的整體變化（以群體平均值為基準）
-              </div>
-
-              <div class="row g-3 mb-4">
-                <div class="col-md-6">
-                  <label class="small fw-bold text-muted mb-1"
-                    >第一個日期</label
-                  >
-                  <div class="input-group shadow-sm">
-                    <input
-                      id="groupA-range"
-                      class="form-control bg-white"
-                      placeholder="請選擇開始至結束日期"
-                      readonly
-                    />
-                    <button class="btn btn-outline-secondary" id="clearGroupA">
-                      清除
-                    </button>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <label class="small fw-bold text-muted mb-1"
-                    >第二個日期</label
-                  >
-                  <div class="input-group shadow-sm">
-                    <input
-                      id="groupB-range"
-                      class="form-control bg-white"
-                      placeholder="請選擇開始至結束日期"
-                      readonly
-                    />
-                    <button class="btn btn-outline-secondary" id="clearGroupB">
-                      清除
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <div id="groupCompareResult"></div>
             </div>
-          </div> -->
+          </div>
+
+          <div class="text-secondary small mb-4 p-2 bg-light rounded">
+            <i class="bi bi-info-circle me-1"></i>
+            比較不同時間區間的整體變化（以群體平均值為基準）
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label class="small fw-bold text-muted mb-1"
+                >第一個日期</label
+              >
+              <div class="input-group shadow-sm">
+                <input
+                  id="groupA-range"
+                  class="form-control bg-white"
+                  placeholder="請選擇開始至結束日期"
+                  readonly
+                />
+                <button class="btn btn-outline-secondary" id="clearGroupA">
+                  清除
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="small fw-bold text-muted mb-1"
+                >第二個日期</label
+              >
+              <div class="input-group shadow-sm">
+                <input
+                  id="groupB-range"
+                  class="form-control bg-white"
+                  placeholder="請選擇開始至結束日期"
+                  readonly
+                />
+                <button class="btn btn-outline-secondary" id="clearGroupB">
+                  清除
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div id="groupCompareResult"></div>
+        </div>
+      </div> -->
           <!-- 風險分級統計區塊 -->
           <div class="mb-4 hide-on-all compare-hide">
             <h5
@@ -415,7 +504,7 @@
                   d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                 />
               </svg>
-              風險分級統計
+              <span data-i18n="riskStats">風險分級統計</span>
             </h5>
 
             <!-- 警示清單 -->
@@ -437,25 +526,59 @@
                     d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
                   />
                 </svg>
-                <h6 class="fw-bold text-warn mb-0">警示清單</h6>
+                <h6 class="fw-bold text-warn mb-0" data-i18n="alertList">
+                  警示清單
+                </h6>
               </div>
               <div class="row g-3">
                 <div class="col-md-6">
-                  <p class="fw-semibold text-warn mb-1">
+                  <p
+                    class="fw-semibold text-warn mb-1"
+                    data-i18n="degenerateWarning"
+                  >
                     功能衰退警示 (較前次檢測衰退超過10%)
                   </p>
                   <ul id="degenerateList" class="ms-4 text-secondary">
-                    <li>步行速度衰退：<span></span>人</li>
-                    <li>起坐速度衰退：<span></span>人</li>
+                    <li>
+                      <span data-i18n="walkDeclineLabel">步行速度衰退：</span>
+                      <span class="val">0</span>
+                      <span data-i18n="unitPeople">人</span>
+                    </li>
+                    <li>
+                      <span data-i18n="sitStandDeclineLabel"
+                        >起坐速度衰退：</span
+                      >
+                      <span class="val">0</span>
+                      <span data-i18n="unitPeople">人</span>
+                    </li>
                   </ul>
                 </div>
                 <div class="col-md-6">
-                  <p class="fw-semibold text-warn mb-1">高風險族群</p>
+                  <p
+                    class="fw-semibold text-warn mb-1"
+                    data-i18n="highRiskGroup"
+                  >
+                    高風險族群
+                  </p>
                   <ul id="levelList" class="ms-4 text-secondary">
-                    <li>A級失能者：<span></span>人</li>
-                    <li>B級衰弱者：<span></span>人</li>
+                    <li>
+                      <span data-i18n="vivifrailAFull">A級失能者：</span>
+                      <span class="val">0</span>
+                      <span data-i18n="unitPeople">人</span>
+                    </li>
+                    <li>
+                      <span data-i18n="vivifrailBFull">B級衰弱者：</span>
+                      <span class="val">0</span>
+                      <span data-i18n="unitPeople">人</span>
+                    </li>
+
                     <div class="d-flex justify-content-between flex-wrap">
-                      <li>C級衰弱前期者：<span></span>人</li>
+                      <li>
+                        <span data-i18n="vivifrailCFull">C級衰弱前期者：</span>
+                        <span class="val">0</span>
+                        <span data-i18n="unitPeople">人</span>
+                      </li>
+
                       <div class="mt-2">
                         <button
                           id="viewDetailsBtn"
@@ -483,7 +606,7 @@
                               d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                             />
                           </svg>
-                          查看詳細名單
+                          <span data-i18n="viewDetails">查看詳細名單</span>
                         </button>
                       </div>
                     </div>
@@ -504,12 +627,19 @@
               >
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="detailsModalLabel">詳細名單</h5>
+                    <h5
+                      class="modal-title"
+                      id="detailsModalLabel"
+                      data-i18n="detailList"
+                    >
+                      詳細名單
+                    </h5>
                     <button
                       type="button"
                       class="btn-close"
                       data-bs-dismiss="modal"
                       aria-label="Close"
+                      data-i18n-aria-label="close"
                     ></button>
                   </div>
 
@@ -580,6 +710,7 @@
                       type="button"
                       class="btn btn-secondary btn-sm"
                       data-bs-dismiss="modal"
+                      data-i18n="close"
                     >
                       關閉
                     </button>
@@ -601,7 +732,12 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <div>
-                      <h6 class="fw-bold mb-0 text-purple">步行速度衰退</h6>
+                      <h6
+                        class="fw-bold mb-0 text-purple"
+                        data-i18n="walkDecline"
+                      >
+                        步行速度衰退
+                      </h6>
                     </div>
                     <div
                       class="fs-3 fw-bold text-purple"
@@ -631,7 +767,12 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <div>
-                      <h6 class="fw-bold mb-0 text-info">起坐秒數增加</h6>
+                      <h6
+                        class="fw-bold mb-0 text-info"
+                        data-i18n="sitStandIncrease"
+                      >
+                        起坐秒數增加
+                      </h6>
                     </div>
                     <div
                       class="fs-3 fw-bold text-info"
@@ -655,8 +796,12 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <div>
-                      <h6 class="fw-bold text-danger mb-0">A 級</h6>
-                      <p class="small text-danger mb-0">失能者 (SPPB=0-3分)</p>
+                      <h6 class="fw-bold text-danger mb-0" data-i18n="levelA">
+                        A 級
+                      </h6>
+                      <p class="small text-danger mb-0" data-i18n="levelADesc">
+                        失能者 (SPPB=0-3分)
+                      </p>
                     </div>
                     <div class="fs-3 fw-bold text-danger" id="riskA">0</div>
                   </div>
@@ -672,8 +817,12 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <div>
-                      <h6 class="fw-bold text-warn mb-0">B 級</h6>
-                      <p class="small text-warn mb-0">衰弱者 (SPPB=4-6分)</p>
+                      <h6 class="fw-bold text-warn mb-0" data-i18n="levelB">
+                        B 級
+                      </h6>
+                      <p class="small text-warn mb-0" data-i18n="levelBDesc">
+                        衰弱者 (SPPB=4-6分)
+                      </p>
                     </div>
                     <div class="fs-3 fw-bold text-warn" id="riskB">0</div>
                   </div>
@@ -689,8 +838,10 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <div>
-                      <h6 class="fw-bold text-primary mb-0">C 級</h6>
-                      <p class="small text-primary mb-0">
+                      <h6 class="fw-bold text-primary mb-0" data-i18n="levelC">
+                        C 級
+                      </h6>
+                      <p class="small text-primary mb-0" data-i18n="levelCDesc">
                         衰弱前期者 (SPPB=7-9分)
                       </p>
                     </div>
@@ -708,8 +859,10 @@
                     class="d-flex justify-content-between align-items-center"
                   >
                     <div>
-                      <h6 class="fw-bold text-success mb-0">D 級</h6>
-                      <p class="small text-success mb-0">
+                      <h6 class="fw-bold text-success mb-0" data-i18n="levelD">
+                        D 級
+                      </h6>
+                      <p class="small text-success mb-0" data-i18n="levelDDesc">
                         健康者 (SPPB=10-12分)
                       </p>
                     </div>
@@ -745,7 +898,7 @@
                   d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                 />
               </svg>
-              群體變化趨勢
+              <span data-i18n="trend">群體變化趨勢</span>
             </h5>
 
             <div id="groupCompareToggle" class="my-4">
@@ -757,18 +910,27 @@
                       <div
                         class="d-flex align-items-center justify-content-between"
                       >
-                        <h5 class="fw-semibold text-dark mb-0">
+                        <h5
+                          class="fw-semibold text-dark mb-0"
+                          data-i18n="avgSitStandTrend"
+                        >
                           平均坐站秒數趨勢
                         </h5>
                         <button
                           class="btn btn-sm btn-outline-primary download-chart"
                           data-target="sitStandChartCanvas"
                         >
-                          <i class="fa fa-download me-1"></i> 下載圖檔
+                          <i class="fa fa-download me-1"></i>
+                          <span data-i18n="downloadChart">下載圖檔</span>
                         </button>
                       </div>
 
-                      <div class="text-muted small mb-2">建議小於12秒</div>
+                      <div
+                        class="text-muted small mb-2"
+                        data-i18n="recommendLessThan12"
+                      >
+                        建議小於12秒
+                      </div>
                       <div
                         class="chart-container"
                         style="position: relative; height: 300px; width: 100%"
@@ -785,18 +947,27 @@
                       <div
                         class="d-flex align-items-center justify-content-between"
                       >
-                        <h5 class="fw-semibold text-dark mb-0">
+                        <h5
+                          class="fw-semibold text-dark mb-0"
+                          data-i18n="avgBalanceTrend"
+                        >
                           平均平衡測驗得分
                         </h5>
                         <button
                           class="btn btn-sm btn-outline-primary download-chart"
                           data-target="balanceChartCanvas"
                         >
-                          <i class="fa fa-download me-1"></i> 下載圖檔
+                          <i class="fa fa-download me-1"></i>
+                          <span data-i18n="downloadChart">下載圖檔</span>
                         </button>
                       </div>
 
-                      <div class="text-muted small mb-2">建議大於3.5分</div>
+                      <div
+                        class="text-muted small mb-2"
+                        data-i18n="recommendGreaterThan35"
+                      >
+                        建議大於3.5分
+                      </div>
                       <div
                         class="chart-container"
                         style="height: 300px; width: 100%"
@@ -813,18 +984,25 @@
                       <div
                         class="d-flex align-items-center justify-content-between"
                       >
-                        <h5 class="fw-semibold text-dark mb-0">
+                        <h5
+                          class="fw-semibold text-dark mb-0"
+                          data-i18n="avgGaitSpeedTrend"
+                        >
                           平均步行速度趨勢
                         </h5>
                         <button
                           class="btn btn-sm btn-outline-primary download-chart"
                           data-target="gaitChartCanvas"
                         >
-                          <i class="fa fa-download me-1"></i> 下載圖檔
+                          <i class="fa fa-download me-1"></i>
+                          <span data-i18n="downloadChart">下載圖檔</span>
                         </button>
                       </div>
 
-                      <div class="text-muted small mb-2">
+                      <div
+                        class="text-muted small mb-2"
+                        data-i18n="recommendGte100"
+                      >
                         建議大於等於100cm/s
                       </div>
                       <div
@@ -843,14 +1021,18 @@
                       <div
                         class="d-flex align-items-center justify-content-between"
                       >
-                        <h5 class="fw-semibold text-dark mb-0">
+                        <h5
+                          class="fw-semibold text-dark mb-0"
+                          data-i18n="avgAiFallRisk"
+                        >
                           平均AI跌倒風險機率
                         </h5>
                         <button
                           class="btn btn-sm btn-outline-primary download-chart"
                           data-target="riskChartCanvas"
                         >
-                          <i class="fa fa-download me-1"></i> 下載圖檔
+                          <i class="fa fa-download me-1"></i>
+                          <span data-i18n="downloadChart">下載圖檔</span>
                         </button>
                       </div>
 
@@ -891,13 +1073,14 @@
                   d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                 />
               </svg>
-              參與者狀態
+              <span data-i18n="status">參與者狀態</span>
             </h5>
             <div class="d-flex gap-2 mb-3 sortModeSwitch">
               <button
                 type="button"
                 class="btn btn-outline-primary active"
                 id="riskModeBtn"
+                data-i18n="sortByRisk"
               >
                 依AI跌倒風險等級排序
               </button>
@@ -905,6 +1088,7 @@
                 type="button"
                 class="btn btn-outline-primary"
                 id="levelModeBtn"
+                data-i18n="sortByVivifrail"
               >
                 依Vivifrial等級排序
               </button>
@@ -916,6 +1100,7 @@
                   type="button"
                   class="btn btn-secondary flex-fill active text-white"
                   data-risk="all"
+                  data-i18n="all"
                 >
                   全部
                 </button>
@@ -930,6 +1115,7 @@
                   type="button"
                   class="btn btn-warning flex-fill risk-high text-white"
                   data-risk="slightlyHigh"
+                  data-i18n="riskHighDanger"
                 >
                   高
                 </button>
@@ -937,6 +1123,7 @@
                   type="button"
                   class="btn btn-primary flex-fill risk-medium text-white"
                   data-risk="medium"
+                  data-i18n="riskHigh"
                 >
                   中
                 </button>
@@ -944,6 +1131,7 @@
                   type="button"
                   class="btn btn-info flex-fill risk-slightly-low text-white"
                   data-risk="slightlyLow"
+                  data-i18n="riskSlightlyLow"
                 >
                   稍低
                 </button>
@@ -951,6 +1139,7 @@
                   type="button"
                   class="btn btn-success flex-fill risk-low text-white"
                   data-risk="low"
+                  data-i18n="riskLow"
                 >
                   低
                 </button>
@@ -962,31 +1151,64 @@
                   class="btn btn-outline-secondary dropdown-toggle w-100"
                   type="button"
                   data-bs-toggle="dropdown"
+                  data-i18n="selectRisk"
                 >
                   請選擇風險
                 </button>
                 <ul class="dropdown-menu w-100">
                   <li>
-                    <a class="dropdown-item" href="#" data-risk="all">全部</a>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-risk="all"
+                      data-i18n="all"
+                      >全部</a
+                    >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#" data-risk="high">危險</a>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-risk="high"
+                      data-i18n="riskHighDanger"
+                      >危險</a
+                    >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#" data-risk="slightlyHigh"
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-risk="slightlyHigh"
+                      data-i18n="riskHigh"
                       >高</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#" data-risk="medium">中</a>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-risk="medium"
+                      data-i18n="riskMedium"
+                      >中</a
+                    >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#" data-risk="slightlyLow"
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-risk="slightlyLow"
+                      data-i18n="riskSlightlyLow"
                       >稍低</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#" data-risk="low">低</a>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-risk="low"
+                      data-i18n="riskLow"
+                      >低</a
+                    >
                   </li>
                 </ul>
               </div>
@@ -1020,7 +1242,7 @@
                       d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                     />
                   </svg>
-                  查看全部參與者
+                  <span data-i18n="viewAllParticipants">查看全部參與者</span>
                 </button>
               </div>
               <!-- 查看全部彈窗 -->
@@ -1028,7 +1250,9 @@
                 <div class="modal-dialog modal-xl modal-dialog-scrollable">
                   <div class="modal-content">
                     <div class="modal-header flex-column">
-                      <h5 class="modal-title w-100">全部參與者</h5>
+                      <h5 class="modal-title w-100" data-i18n="allParticipants">
+                        全部參與者
+                      </h5>
 
                       <!-- 分類按鈕：桌機版 -->
                       <div
@@ -1039,6 +1263,7 @@
                           type="button"
                           class="btn btn-secondary flex-fill active text-white"
                           data-risk="all"
+                          data-i18n="all"
                         >
                           全部
                         </button>
@@ -1046,6 +1271,7 @@
                           type="button"
                           class="btn btn-danger flex-fill risk-high-danger text-white"
                           data-risk="high"
+                          data-i18n="riskHighDanger"
                         >
                           危險
                         </button>
@@ -1053,6 +1279,7 @@
                           type="button"
                           class="btn btn-warning flex-fill risk-high text-white"
                           data-risk="slightlyHigh"
+                          data-i18n="riskHigh"
                         >
                           高
                         </button>
@@ -1060,6 +1287,7 @@
                           type="button"
                           class="btn btn-primary flex-fill risk-medium text-white"
                           data-risk="medium"
+                          data-118n="riskMedium"
                         >
                           中
                         </button>
@@ -1067,6 +1295,7 @@
                           type="button"
                           class="btn btn-info flex-fill risk-slightly-low text-white"
                           data-risk="slightlyLow"
+                          data-i18n="riskSlightlyLow"
                         >
                           稍低
                         </button>
@@ -1074,6 +1303,7 @@
                           type="button"
                           class="btn btn-success flex-fill risk-low text-white"
                           data-risk="low"
+                          data-i18n="riskLow"
                         >
                           低
                         </button>
@@ -1088,17 +1318,26 @@
                           class="btn btn-outline-secondary dropdown-toggle w-100"
                           type="button"
                           data-bs-toggle="dropdown"
+                          data-i18n="selectRisk"
                         >
                           請選擇風險
                         </button>
                         <ul class="dropdown-menu w-100">
                           <li>
-                            <a class="dropdown-item" href="#" data-risk="all"
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-risk="all"
+                              data-i18n="all"
                               >全部</a
                             >
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#" data-risk="high"
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-risk="high"
+                              data-i18n="riskHighDanger"
                               >危險</a
                             >
                           </li>
@@ -1107,11 +1346,16 @@
                               class="dropdown-item"
                               href="#"
                               data-risk="slightlyHigh"
+                              data-i18n="riskHigh"
                               >高</a
                             >
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#" data-risk="medium"
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-risk="medium"
+                              data-i18n="riskMedium"
                               >中</a
                             >
                           </li>
@@ -1120,11 +1364,16 @@
                               class="dropdown-item"
                               href="#"
                               data-risk="slightlyLow"
+                              data-i18n="riskSlightlyLow"
                               >稍低</a
                             >
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#" data-risk="low"
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-risk="low"
+                              data-i18n="riskLow"
                               >低</a
                             >
                           </li>
@@ -1135,6 +1384,8 @@
                         type="button"
                         class="btn-close mt-2"
                         data-bs-dismiss="modal"
+                        aria-label="Close"
+                        data-i18n-aria-label="close"
                       ></button>
                     </div>
 
@@ -1152,6 +1403,8 @@
                   type="button"
                   class="btn btn-secondary flex-fill active text-white"
                   data-filter="all"
+                  data-i18n="all"
+                  data-i18n="all"
                 >
                   全部
                 </button>
@@ -1159,6 +1412,7 @@
                   type="button"
                   class="btn btn-danger flex-fill text-white"
                   data-filter="A"
+                  data-i18n="levelAFull"
                 >
                   A級失能者
                 </button>
@@ -1166,6 +1420,7 @@
                   type="button"
                   class="btn btn-warning flex-fill text-white"
                   data-filter="B"
+                  data-i18n="levelBFull"
                 >
                   B級衰弱者
                 </button>
@@ -1173,6 +1428,7 @@
                   type="button"
                   class="btn btn-primary flex-fill text-white"
                   data-filter="C"
+                  data-i18n="levelCFull"
                 >
                   C級衰弱前期者
                 </button>
@@ -1180,6 +1436,7 @@
                   type="button"
                   class="btn btn-success flex-fill text-white"
                   data-filter="D"
+                  data-i18n="levelDFull"
                 >
                   D級健康者
                 </button>
@@ -1191,30 +1448,53 @@
                   class="btn btn-outline-secondary dropdown-toggle w-100"
                   type="button"
                   data-bs-toggle="dropdown"
+                  data-i18n="selectLevel"
                 >
                   請選擇等級
                 </button>
                 <ul class="dropdown-menu w-100">
                   <li>
-                    <a class="dropdown-item" href="#" data-filter="all">全部</a>
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-filter="all"
+                      data-i18n="all"
+                      >全部</a
+                    >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#" data-filter="A"
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-filter="A"
+                      data-i18n="levelAFull"
                       >A級失能者</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#" data-filter="B"
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-filter="B"
+                      data-i18n="levelBFull"
                       >B級衰弱者</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#" data-filter="C"
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-filter="C"
+                      data-i18n="levelCFull"
                       >C級衰弱前期者</a
                     >
                   </li>
                   <li>
-                    <a class="dropdown-item" href="#" data-filter="D"
+                    <a
+                      class="dropdown-item"
+                      href="#"
+                      data-filter="D"
+                      data-i18n="levelDFull"
                       >D級健康者</a
                     >
                   </li>
@@ -1252,7 +1532,7 @@
                       d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                     />
                   </svg>
-                  查看全部參與者
+                  <span data-i18n="viewAllParticipants">查看全部參與者</span>
                 </button>
               </div>
 
@@ -1261,7 +1541,9 @@
                 <div class="modal-dialog modal-xl modal-dialog-scrollable">
                   <div class="modal-content">
                     <div class="modal-header flex-column">
-                      <h5 class="modal-title w-100">全部參與者</h5>
+                      <h5 class="modal-title w-100" data-i18n="allParticipants">
+                        全部參與者
+                      </h5>
 
                       <!-- 桌機版篩選按鈕 -->
                       <div
@@ -1272,6 +1554,7 @@
                           type="button"
                           class="btn btn-secondary flex-fill active text-white"
                           data-filter="all"
+                          data-i18n="all"
                         >
                           全部
                         </button>
@@ -1279,6 +1562,7 @@
                           type="button"
                           class="btn btn-danger flex-fill text-white"
                           data-filter="A"
+                          data-i18n="levelAFull"
                         >
                           A級失能者
                         </button>
@@ -1286,6 +1570,7 @@
                           type="button"
                           class="btn btn-warning flex-fill text-white"
                           data-filter="B"
+                          data-i18n="levelBFull"
                         >
                           B級衰弱者
                         </button>
@@ -1293,12 +1578,14 @@
                           type="button"
                           class="btn btn-primary flex-fill text-white"
                           data-filter="C"
+                          data-i18n="levelCFull"
                         >
                           C級衰弱前期者
                         </button>
                         <button
                           type="button"
                           class="btn btn-success flex-fill text-white"
+                          data-i18n="levelDFull"
                           data-filter="D"
                         >
                           D級健康者
@@ -1314,32 +1601,53 @@
                           class="btn btn-outline-secondary dropdown-toggle w-100"
                           type="button"
                           data-bs-toggle="dropdown"
+                          data-i18n="selectLevel"
                         >
                           請選擇等級
                         </button>
                         <ul class="dropdown-menu w-100">
                           <li>
-                            <a class="dropdown-item" href="#" data-filter="all"
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-filter="all"
+                              data-i18n="all"
                               >全部</a
                             >
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#" data-filter="A"
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-filter="A"
+                              data-i18n="levelAFull"
                               >A級失能者</a
                             >
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#" data-filter="B"
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-filter="B"
+                              data-i18n="levelBFull"
                               >B級衰弱者</a
                             >
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#" data-filter="C"
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-filter="C"
+                              data-i18n="levelCFull"
                               >C級衰弱前期者</a
                             >
                           </li>
                           <li>
-                            <a class="dropdown-item" href="#" data-filter="D"
+                            <a
+                              class="dropdown-item"
+                              href="#"
+                              data-filter="D"
+                              data-i18n="levelDFull"
                               >D級健康者</a
                             >
                           </li>
@@ -1350,6 +1658,8 @@
                         type="button"
                         class="btn-close mt-2"
                         data-bs-dismiss="modal"
+                        aria-label="Close"
+                        data-i18n-aria-label="close"
                       ></button>
                     </div>
 
@@ -1389,7 +1699,7 @@
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                 />
               </svg>
-              檢測據點分布
+              <span data-i18n="locationDistribution">檢測據點分布</span>
             </h5>
 
             <!-- 地圖 -->
@@ -1414,6 +1724,7 @@
                 class="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                data-i18n-aria-label="close"
               ></button>
             </div>
             <div class="modal-body" id="personDetailBody"></div>
@@ -1422,10 +1733,20 @@
       </div>
       <!--  Cookie 提示區 -->
       <div id="cookieConsent">
-        <p>我們使用 Cookie 來記錄您的語系偏好，是否同意？</p>
+        <p data-i18n="cookieConsentText">
+          我們使用 Cookie 來記錄您的語系偏好，是否同意？
+        </p>
         <div class="d-flex justify-content-end gap-2">
-          <button class="btn btn-primary" id="acceptCookies">同意</button>
-          <button class="btn btn-secondary" id="rejectCookies">不同意</button>
+          <button class="btn btn-primary" id="acceptCookies" data-i18n="accept">
+            同意
+          </button>
+          <button
+            class="btn btn-secondary"
+            id="rejectCookies"
+            data-i18n="reject"
+          >
+            不同意
+          </button>
         </div>
       </div>
     </div>
@@ -1465,6 +1786,7 @@
 <script src="/js/common/sortModeSwitch.js"></script>
 <script src="/js/common/initSidebar.js"></script>
 <script src="/js/common/logout.js"></script>
+<script src="/js/common/118n.js"></script>
 <script src="/js/common/main.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -1477,7 +1799,3 @@
   async
   defer
 ></script>
-
-<script>
-  window.currentLang = "zh";
-</script>

@@ -13,7 +13,7 @@ function renderRisk(selectedAssessments = []) {
   const progressD = document.getElementById("progressD");
 
   const degenerateGaitSpeedTotal = document.getElementById(
-    "degenerateGaitSpeedTotal"
+    "degenerateGaitSpeedTotal",
   );
   const degenerateChairTotal = document.getElementById("degenerateChairTotal");
   const progressGaitSpeed = document.getElementById("progressGaitSpeed");
@@ -100,7 +100,7 @@ function updateLatestCountDate(assessments) {
 
   const totalCount = assessments.reduce(
     (sum, item) => sum + (item.Count || 0),
-    0
+    0,
   );
   latestCountEl.textContent = `${totalCount}`;
 
@@ -119,12 +119,12 @@ function updateLatestCountDate(assessments) {
   if (sorted.length === 1) {
     latestDateEl.textContent = t("latestDateText").replace(
       "{date}",
-      formattedLatest
+      formattedLatest,
     );
   } else {
     latestDateEl.textContent = t("latestDateText").replace(
       "{date}",
-      `${formattedOldest} ~ ${formattedLatest}`
+      `${formattedOldest} ~ ${formattedLatest}`,
     );
   }
 }
@@ -158,7 +158,7 @@ function updateDegenerateAndLevels(assessments = []) {
 
   const degenerateList = document.getElementById("degenerateList");
   if (degenerateList) {
-    const spans = degenerateList.querySelectorAll("span");
+    const spans = degenerateList.querySelectorAll(".val");
     if (spans.length >= 2) {
       spans[0].textContent = totalGaitSpeed;
       spans[1].textContent = totalChairSecond;
@@ -167,7 +167,7 @@ function updateDegenerateAndLevels(assessments = []) {
 
   const levelList = document.getElementById("levelList");
   if (levelList) {
-    const spans = levelList.querySelectorAll("span");
+    const spans = levelList.querySelectorAll(".val");
     if (spans.length >= 3) {
       spans[0].textContent = countA;
       spans[1].textContent = countB;
@@ -180,7 +180,7 @@ function updateDegenerateAndLevels(assessments = []) {
 function resetDegenerateAndLevels() {
   const degenerateList = document.getElementById("degenerateList");
   if (degenerateList) {
-    const spans = degenerateList.querySelectorAll("span");
+    const spans = degenerateList.querySelectorAll(".val");
     if (spans.length >= 2) {
       spans[0].textContent = 0;
       spans[1].textContent = 0;
@@ -189,7 +189,7 @@ function resetDegenerateAndLevels() {
 
   const levelList = document.getElementById("levelList");
   if (levelList) {
-    const spans = levelList.querySelectorAll("span");
+    const spans = levelList.querySelectorAll(".val");
     if (spans.length >= 3) {
       spans[0].textContent = 0;
       spans[1].textContent = 0;
@@ -242,12 +242,12 @@ function updateTotalCountAndStartDate(assessments) {
     if (sortedDates.length === 1) {
       startDateTextEl.textContent = t("startDateText").replace(
         "{yearMonth}",
-        latest
+        latest,
       );
     } else {
       startDateTextEl.textContent = t("startDateText").replace(
         "{yearMonth}",
-        `${oldest} ~ ${latest}`
+        `${oldest} ~ ${latest}`,
       );
     }
   }

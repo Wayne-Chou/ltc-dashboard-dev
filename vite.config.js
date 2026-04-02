@@ -10,9 +10,6 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         login: resolve(__dirname, "login.html"),
         personDetail: resolve(__dirname, "personDetail.html"),
-        en: resolve(__dirname, "index_en.html"),
-        ja: resolve(__dirname, "index_ja.html"),
-        ko: resolve(__dirname, "index_ko.html"),
       },
       // --- 加入以下輸出設定 ---
       output: {
