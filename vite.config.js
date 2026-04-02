@@ -2,7 +2,7 @@ import { defineConfig } from "vite";
 import { resolve } from "path";
 
 export default defineConfig({
-  base: "/dashboard/",
+  base: "/ltc-dashboard-dev/",
   build: {
     assetsInlineLimit: 0,
     rollupOptions: {
